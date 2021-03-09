@@ -8,6 +8,8 @@ pylint = "*"
 
 [packages]
 django = "==3.1"
+psycopg2 = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"
