@@ -1,0 +1,32 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+Welcome to the Content Collector
+
+<ul id="content">
+    Loading...
+</ul>
+
+<script>
+    const cntElement = document.getElementById("content")
+
+    const xhr = new XMLHttpRequest()
+    const method = 'GET'
+    const url = "/content/all"
+    const responseType = "json"
+
+    xhr.responseType = responseType
+    xhr.open(method, url)
+    xhr.onload = function() {
+        const serverResponse = xhr.response
+        let listedItems = serverResponse.response
+        cntElement.innerHTML=""
+        listedItems.map((i) => {
+            const listEl = document.createElement('li')
+            listEl.textContent = i.title
+            cntElement.appendChild(listEl)
+        })
+    }
+    xhr.send()
+</script>
+{% endblock content %}
