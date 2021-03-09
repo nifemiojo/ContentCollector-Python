@@ -17,15 +17,15 @@
 
 2. Collections made up of content
     -> Category
+    -> Collections of collections
+    -> Private and public collections
     -> Creating
     -> Delete
-    -> Private and public collections
     -> Sharing
     -> Like
     -> Comments
     -> User Subscribe
         -> Unsubscribe
-    -> Collections of collections
 
 3. Content
     -> Title
@@ -46,6 +46,7 @@
     -> Category
 
 Long-term
+- Neo4j?
 - Example Lists (How to use app)
 - add custom columns (like ratings for movies)
     - add custom properties to content
