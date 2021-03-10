@@ -12,7 +12,7 @@ Welcome to the Content Collector
 
     const xhr = new XMLHttpRequest()
     const method = 'GET'
-    const url = "/content/all"
+    const url = "/collection/"
     const responseType = "json"
 
     xhr.responseType = responseType
@@ -23,7 +23,7 @@ Welcome to the Content Collector
         cntElement.innerHTML=""
         listedItems.map((i) => {
             const listEl = document.createElement('li')
-            listEl.textContent = i.title
+            listEl.textContent = i.name
             cntElement.appendChild(listEl)
         })
     }

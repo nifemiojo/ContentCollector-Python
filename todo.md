@@ -16,7 +16,7 @@
         
 
 2. Collections made up of content
-    -> Category
+    -> Category (or tags?)
     -> Collections of collections
     -> Private and public collections
     -> Creating
