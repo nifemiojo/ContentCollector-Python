@@ -1,7 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404, JsonResponse
+from rest_framework import generics
 
 from .models import Content, Collection
+from .forms import CollectionForm
+from .serializers import CollectionSerializer
+
+class CollectionView(generics.ListAPIView):
+    queryset = Collection.objects.all()
+    serializer_class = CollectionSerializer
+
 def homeView(request):
     return render(request, "layout/home.html", context={}, status=200)
 
@@ -64,3 +72,11 @@ def contentView(request, collectionId, contentId):
         status = 404
  
     return JsonResponse(data, status=status)
+
+def createCollection(request, *args, **kwargs):
+    form = CollectionForm(request.POST or None)
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.save()
+        form = CollectionForm()
+    return render(request, 'components/form.html', context={"form": form})
