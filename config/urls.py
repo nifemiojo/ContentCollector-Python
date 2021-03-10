@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 
 from collections_app import views
 
 urlpatterns = [
-    path('home/', views.homeView, name="homeView"),
     path('collection/', include('collections_app.urls')),
     path('admin/', admin.site.urls),
+    path('', TemplateView.as_view(template_name='index.html')),
+    path('home/', views.homeView, name="homeView"),
 ]
