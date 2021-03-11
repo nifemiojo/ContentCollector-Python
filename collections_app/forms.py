@@ -5,4 +5,4 @@ from .models import Collection
 class CollectionForm(forms.ModelForm):
     class Meta:
         model = Collection
-        fields = ['name', 'description', 'categories', 'contents', 'privacyLevel']
+        fields = ['name', 'description', 'tags', 'contents', 'privacyLevel']

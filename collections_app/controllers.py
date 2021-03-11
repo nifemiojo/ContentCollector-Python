@@ -6,13 +6,14 @@ from .models import Content, Collection
 from .forms import CollectionForm
 from .serializers import CollectionSerializer
 
-class CollectionView(generics.ListAPIView):
-    queryset = Collection.objects.all()
-    serializer_class = CollectionSerializer
-
-def homeView(request):
-    return render(request, "layout/home.html", context={}, status=200)
-
+def createCollection(request, *args, **kwargs):
+    form = CollectionForm(request.POST or None)
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.save()
+        form = CollectionForm()
+    return render(request, 'components/form.html', context={"form": form})
+    
 def contentListView(request):
     """
     REST API View
@@ -21,7 +22,7 @@ def contentListView(request):
     collectionsList = [{
         "id": x.id, 
         "name": x.name, 
-        "categories": [y.name for y in x.categories.all()],
+        "tags": [y.name for y in x.tags.all()],
         "contents": [y.title for y in x.contents.all()],
         "privacy": x.privacyLevel
     } for x in collections]
@@ -72,11 +73,3 @@ def contentView(request, collectionId, contentId):
         status = 404
  
     return JsonResponse(data, status=status)
-
-def createCollection(request, *args, **kwargs):
-    form = CollectionForm(request.POST or None)
-    if form.is_valid():
-        obj = form.save(commit=False)
-        obj.save()
-        form = CollectionForm()
-    return render(request, 'components/form.html', context={"form": form})

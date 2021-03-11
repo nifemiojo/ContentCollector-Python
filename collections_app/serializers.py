@@ -5,6 +5,6 @@ from .models import Collection
 class CollectionSerializer(serializers.ModelSerializer):
     class Meta():
         model = Collection
-        fields = ('id', 'name', 'description', 'categories', 'contents', 
+        fields = ('id', 'name', 'description', 'tags', 'contents', 
                     'collections', 'privacyLevel')
         

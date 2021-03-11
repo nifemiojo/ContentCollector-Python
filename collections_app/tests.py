@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from .models import Content, Collection, Category
+from .models import Content, Collection, Tag
 
 # Create your tests here.
 class CollectionTestCase(TestCase):
@@ -12,8 +12,8 @@ class CollectionTestCase(TestCase):
         cnt2 = Content.objects.create(title="Django By Example", description="Django book")
         cnt3 = Content.objects.create(title="Coding Entrepreneurs", description="Coding Youtuber", link="https://www.youtube.com/")
 
-        ctg1 = Category.objects.create(name="Coding")
-        ctg2 = Category.objects.create(name="Twitter")
+        ctg1 = Tag.objects.create(name="Coding")
+        ctg2 = Tag.objects.create(name="Twitter")
 
         clt1.contents.add(cnt1, cnt2, cnt3)
         clt1.categories.add(ctg1)

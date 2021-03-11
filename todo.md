@@ -61,3 +61,10 @@ Long-term
     - Title (select to view as either:)
         - List
         - Table
+
+A mixture of twitter, LinkedIn, Github
+
+Endpoints:
+- login/
+- feed/
+- collecction/<int: id>
