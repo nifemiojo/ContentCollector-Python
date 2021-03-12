@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import CreateCollection from "./CreateCollection";
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
           <Route exact path="/feed" component={HomePage} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/collection/create" component={CreateCollection} />
         </Switch>
       </div>
   );

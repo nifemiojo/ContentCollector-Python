@@ -19,6 +19,7 @@
     -> Category (or tags?)
     -> Collections of collections
     -> Private and public collections
+    -> Collaborative collections
     -> Creating
     -> Delete
     -> Sharing
