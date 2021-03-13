@@ -1,11 +1,11 @@
 from django.urls import path
 
-from . import controllers
+from .controllers import SaveCollection, controllers, ListOfCollections
 
-# /collectionTest
+# /api/collection/
 urlpatterns = [
-    path('save/', controllers.CreateCollection.as_view(), name="createCollection"),
-    path('<int:collectionId>/', controllers.collectionView, name="collectionDetailView"),
-    path('<int:collectionId>/<int:contentId>/', controllers.contentView, name="collectionDetailView"),
-    path('', controllers.AllCollections.as_view(), name="collectionDetailView"),
+    path('userList/', ListOfCollections.ListOfCollections.as_view(), name="listUserCollections"),
+    path('save/', SaveCollection.SaveCollection.as_view(), name="saveCollection"),
+    path('<int:collectionId>/', SaveCollection.SaveCollection.as_view(), name="collectionDetailView"),
+    path('<int:collectionId>/<int:contentId>/', SaveCollection.SaveCollection.as_view(), name="collectionDetailView"),
 ]

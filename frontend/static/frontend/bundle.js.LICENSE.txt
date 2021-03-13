@@ -4,6 +4,14 @@ object-assign
 @license MIT
 */
 
+/*!
+ * JavaScript Cookie v2.2.1
+ * https://github.com/js-cookie/js-cookie
+ *
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+ * Released under the MIT license
+ */
+
 /*! ../../utils/createSvgIcon */
 
 /*! ../ButtonBase */
@@ -208,6 +216,8 @@ object-assign
 
 /*! ./factoryWithTypeCheckers */
 
+/*! ./hooks/UseInput */
+
 /*! ./indexCounter */
 
 /*! ./iterableToArray.js */
@@ -297,6 +307,8 @@ object-assign
 /*! is-in-browser */
 
 /*! isarray */
+
+/*! js-cookie */
 
 /*! jss */
 
@@ -390,6 +402,10 @@ object-assign
   !*** ./node_modules/prop-types/index.js ***!
   \******************************************/
 
+/*!******************************************!*\
+  !*** ./src/components/hooks/UseInput.js ***!
+  \******************************************/
+
 /*!*******************************************!*\
   !*** ./node_modules/scheduler/tracing.js ***!
   \*******************************************/
@@ -433,6 +449,10 @@ object-assign
 /*!*******************************************************!*\
   !*** ./node_modules/react-router/esm/react-router.js ***!
   \*******************************************************/
+
+/*!********************************************************!*\
+  !*** ../../../node_modules/js-cookie/src/js.cookie.js ***!
+  \********************************************************/
 
 /*!********************************************************!*\
   !*** ./node_modules/@material-ui/utils/esm/refType.js ***!

@@ -14,6 +14,5 @@ class CreateCollectionSerializer(serializers.ModelSerializer):
     class Meta():
         model = Collection
         # Takes data from req, fields expected in POST req
-        fields = ('name', 'description', 'tags', 'contents', 
-                    'collections', 'privacyLevel')
+        fields = ('name', 'description', 'privacyLevel')
   
