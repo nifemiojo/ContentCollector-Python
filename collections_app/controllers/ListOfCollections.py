@@ -7,7 +7,7 @@ from ..models import Collection
 
 class ListOfCollections(APIView):
 
-    def get(self, request):
+    def get(self, request, format=None):
         """
         REST API View
         Returns list of users collections upon GET request

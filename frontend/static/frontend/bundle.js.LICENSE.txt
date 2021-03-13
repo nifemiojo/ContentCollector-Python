@@ -148,6 +148,8 @@ object-assign
 
 /*! ./CreateCollection */
 
+/*! ./Error404 */
+
 /*! ./FormControlContext */
 
 /*! ./HomePage */
@@ -365,6 +367,10 @@ object-assign
 /*!*******************************!*\
   !*** ./src/components/App.js ***!
   \*******************************/
+
+/*!************************************!*\
+  !*** ./src/components/Error404.js ***!
+  \************************************/
 
 /*!************************************!*\
   !*** ./src/components/HomePage.js ***!

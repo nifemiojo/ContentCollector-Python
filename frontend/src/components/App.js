@@ -7,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import CreateCollection from "./CreateCollection";
+import Error404 from "./Error404";
 
 export default function App() {
   return (

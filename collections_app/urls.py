@@ -1,4 +1,5 @@
 from django.urls import path
+from rest_framework.urlpatterns import format_suffix_patterns
 
 from .controllers import SaveCollection, controllers, ListOfCollections
 
@@ -9,3 +10,5 @@ urlpatterns = [
     path('<int:collectionId>/', SaveCollection.SaveCollection.as_view(), name="collectionDetailView"),
     path('<int:collectionId>/<int:contentId>/', SaveCollection.SaveCollection.as_view(), name="collectionDetailView"),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

@@ -11,6 +11,7 @@ import { useInput } from './hooks/UseInput';
 export default function CreateCollection () {
     // Get the CSRF Token
     const csrftoken = Cookies.get('csrftoken');
+    
     // Custom Hook
     const [nameProps, resetName] = useInput("");
     const [descriptionProps, resetDescription] = useInput("");
