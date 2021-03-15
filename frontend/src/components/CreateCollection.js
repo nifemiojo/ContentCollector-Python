@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link } from 'react-dom';
 import { Button, Grid, Typography, 
     TextField, FormHelperText, FormControl, 
-    Radio, RadioGroup, FormControlLabel, 
     InputLabel, Select, MenuItem } from "@material-ui/core";
 import Cookies from 'js-cookie';
 
@@ -33,7 +31,7 @@ export default function CreateCollection () {
 
     const submit = e => {
 		e.preventDefault();
-        fetch('/api/save/', requestOptions)
+        fetch('/api/collection/save/', requestOptions)
             .then((res) => res.json())
             .then((data) => console.log(data));
         resetName();

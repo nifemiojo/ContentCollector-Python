@@ -9,5 +9,5 @@ urlpatterns = [
     path('login', TemplateView.as_view(template_name='index.html')),
     path('register', TemplateView.as_view(template_name='index.html')),
     path('feed', TemplateView.as_view(template_name='index.html')),
-    path('collection/create', TemplateView.as_view(template_name='index.html'))
+    path('new', TemplateView.as_view(template_name='index.html'))
 ]

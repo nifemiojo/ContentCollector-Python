@@ -5,12 +5,11 @@ import CreateCollection from './CreateCollection';
 export default function HomePage() {
     return (
         <div>
-            <h1>Collections Feed</h1>
-            <h5>This page will display the latest collections of interest to the user</h5>
+            <h1>User Dashboard</h1>
+            <h5>Page user sees to manage their Collections</h5>
             <ul>
-                <li><Link to="/collection/create">Create a Collection</Link></li>
-                <li><Link to="/collection/create">Subscribed Collections</Link></li>
-                <li><Link to="/collection/create">My Collections</Link></li>
+                <li><Link to="/new">Create a Collection (Button)</Link></li>
+                <li><a href="/api/collection/userList.json">My Collections</a></li>
             </ul>
         </div>
     );

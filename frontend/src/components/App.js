@@ -23,6 +23,9 @@ export default function App() {
             <li>
               <Link to="/register">Register</Link>
             </li>
+            <li>
+              <Link to="/">User Profile</Link>
+            </li>
           </ul>
         </nav>
 
@@ -32,7 +35,7 @@ export default function App() {
           <Route exact path="/feed" component={HomePage} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/collection/create" component={CreateCollection} />
+          <Route exact path="/new" component={CreateCollection} />
         </Switch>
       </div>
   );

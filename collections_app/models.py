@@ -22,6 +22,6 @@ class Collection(models.Model):
     collections = models.ManyToManyField('self', verbose_name="list of collections", blank=True)
     PRIVACY_CHOICES = models.TextChoices("PRIVACY_CHOICES", "Public Private Personal")
     privacyLevel = models.CharField("privacy level", choices=PRIVACY_CHOICES.choices, max_length=15)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User', related_name='collections', on_delete=models.CASCADE)
 
     # createdAt = models.DateTimeField(auto_now_add=True)
