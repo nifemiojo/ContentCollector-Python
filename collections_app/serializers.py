@@ -11,7 +11,7 @@ class CollectionSerializer(serializers.ModelSerializer):
     class Meta():
         model = Collection
         # Takes data from req, fields expected in POST req
-        fields = ['name', 'description', 'privacyLevel']
+        fields = ['id', 'name', 'description', 'privacyLevel']
 
 class UserSerializer(serializers.ModelSerializer):
     collections = serializers.PrimaryKeyRelatedField(many=True, read_only=True)

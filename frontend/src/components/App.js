@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import CreateCollection from "./CreateCollection";
 import Error404 from "./Error404";
+import UserHome from "./pages/UserHome";
 
 export default function App() {
   return (
@@ -15,13 +16,13 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/feed">Home</Link>
-            </li>
-            <li>
               <Link to="/login">Login</Link>
             </li>
             <li>
               <Link to="/register">Register</Link>
+            </li>
+            <li>
+              <Link to="/home">Home</Link>
             </li>
             <li>
               <Link to="/">User Profile</Link>
@@ -32,9 +33,9 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route exact path="/feed" component={HomePage} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/home" component={UserHome} />
           <Route exact path="/new" component={CreateCollection} />
         </Switch>
       </div>

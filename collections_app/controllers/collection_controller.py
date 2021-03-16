@@ -30,9 +30,9 @@ class CollectionController(APIView):
     def put(self, request, collectionId):
         # TODO Make sure only the user who owns collection is editing it
         collection = Collection.objects.get(id=collectionId)
-        serializer = CollectionSerializer(collection, data=request.data, user=request.user)
+        serializer = CollectionSerializer(collection, data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
