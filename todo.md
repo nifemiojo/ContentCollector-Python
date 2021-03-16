@@ -35,6 +35,7 @@
     -> Link
     -> Geographical location
     -> Spotify Link (embed)
+    -> Social media link
     -> IMDB Link (autofill key info for movies)
     -> YT Thumbnail embed
     -> Collection of wikipedia pages, news articles

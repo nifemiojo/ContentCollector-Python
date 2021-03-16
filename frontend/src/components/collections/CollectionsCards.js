@@ -7,7 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
+import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import EditCollection from "../pages/EditCollection";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -44,8 +45,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CollectionsCards({data, key}) {
     const classes = useStyles();
+    let match = useRouteMatch();
+    console.log(match.path);
 
     return(
+        <>
         <Grid item key={key} xs={12} sm={6} md={4}>
             <Card className={classes.card}>
                 <CardMedia
@@ -62,10 +66,7 @@ export default function CollectionsCards({data, key}) {
                 </Typography>
                 </CardContent>
                 <CardActions>
-                <Button size="small" color="primary" component={Link} href={`api/collection/edit/${data.id}`}>
-                    View
-                </Button>
-                <Button size="small" color="primary">
+                <Button size="small" color="primary" component={Link} to={`${match.path}/${data.id}`}>
                     Edit
                 </Button>
                 <Button size="small" color="secondary">
@@ -74,5 +75,10 @@ export default function CollectionsCards({data, key}) {
                 </CardActions>
             </Card>
         </Grid>
+
+        {/* <Switch>
+            <Route path={`/${match.path}/:collectionId`} component={EditCollection} />
+        </Switch> */}
+        </>
     )
 }

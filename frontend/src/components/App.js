@@ -1,4 +1,3 @@
-import HomePage from "./HomePage"
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -9,6 +8,7 @@ import {
 import CreateCollection from "./CreateCollection";
 import Error404 from "./Error404";
 import UserHome from "./pages/UserHome";
+import EditCollection from "./pages/EditCollection";
 
 export default function App() {
   return (
@@ -22,7 +22,7 @@ export default function App() {
               <Link to="/register">Register</Link>
             </li>
             <li>
-              <Link to="/home">Home</Link>
+              <Link to="/collections">Home</Link>
             </li>
             <li>
               <Link to="/">User Profile</Link>
@@ -35,8 +35,9 @@ export default function App() {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/home" component={UserHome} />
+          <Route exact path="/collections" component={UserHome} />
           <Route exact path="/new" component={CreateCollection} />
+          <Route exact path="/collections/:collectionId" component={EditCollection} />
         </Switch>
       </div>
   );
