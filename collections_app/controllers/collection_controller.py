@@ -13,7 +13,7 @@ class CollectionController(APIView):
 
     def get(self, request, collectionId, format=None):
         collection = Collection.objects.get(id=collectionId)
-        serializer = CollectionSerializer(collection)
+        serializer = CollectionSerializer(collection, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
