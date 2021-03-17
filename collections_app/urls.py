@@ -5,7 +5,7 @@ from .controllers import collection_controller, controllers, ListOfCollections, 
 
 # /api/collection/
 urlpatterns = [
-    path('userlist/', ListOfCollections.ListOfCollections.as_view(), name="listUserCollections"),
+    path('userlist/', ListOfCollections.ListOfCollections.as_view(), name="listUsersCollections"),
     path('save/', collection_controller.CollectionController.as_view(), name="collection_controller"),
     path('edit/<int:collectionId>/', collection_controller.CollectionController.as_view(), name="updateCollection"),
     path('<int:collectionId>/', collection_controller.CollectionController.as_view(), name="collectionDetailView"),

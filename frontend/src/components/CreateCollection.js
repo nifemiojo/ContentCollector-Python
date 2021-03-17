@@ -81,7 +81,7 @@ export default function CreateCollection () {
                 </FormControl>
             </Grid>
             <Grid item xs={12} align="center">
-                <Button color="primary" variant="contained" onClick={submit}>
+                <Button color="primary" variant="contained" onClick={() => submit()}>
                     Create
                 </Button>
             </Grid>

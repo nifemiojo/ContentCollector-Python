@@ -7,8 +7,10 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
-import EditCollection from "../pages/EditCollection";
+import { Link, useRouteMatch } from "react-router-dom";
+import { useCollections } from '../hooks/collectionHooks';
+import Cookies from 'js-cookie';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -45,8 +47,28 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CollectionsCards({data, key}) {
     const classes = useStyles();
-    let match = useRouteMatch();
-    console.log(match.path);
+    const match = useRouteMatch();
+    const { setClickedCollection } = useCollections();
+    const csrftoken = Cookies.get('csrftoken');
+
+
+    const requestOptions = {
+        method: 'DELETE',
+        headers: { 
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+        },
+        mode: 'same-origin',
+    };
+
+    const handleDel = (e) => {
+        console.log("Deleting...");
+        fetch(`/api/collection/edit/${data.id}/`, requestOptions)
+            .then((data) => console.log(data))
+            .catch((err) => console.error(err));
+        
+            // TODO : When a collection is successully deleted, remove and update state
+    }
 
     return(
         <>
@@ -58,27 +80,23 @@ export default function CollectionsCards({data, key}) {
                 title="Image title"
                 />
                 <CardContent className={classes.cardContent}>
-                <Typography gutterBottom variant="h5" component="h2">
-                    {data.name}
-                </Typography>
-                <Typography>
-                    {data.description}
-                </Typography>
+                    <Typography gutterBottom variant="h5" component="h2">
+                        {data.name}
+                    </Typography>
+                    <Typography>
+                        {data.description}
+                    </Typography>
                 </CardContent>
                 <CardActions>
-                <Button size="small" color="primary" component={Link} to={`${match.path}/${data.id}`}>
-                    Edit
-                </Button>
-                <Button size="small" color="secondary">
-                    Delete
-                </Button>
+                    <Button size="small" color="primary" onClick={() => setClickedCollection(data)} component={Link} to={`${match.path}/${data.id}`}>
+                        Edit
+                    </Button>
+                    <Button size="small" color="secondary" onClick={handleDel}>
+                        Delete
+                    </Button>
                 </CardActions>
             </Card>
         </Grid>
-
-        {/* <Switch>
-            <Route path={`/${match.path}/:collectionId`} component={EditCollection} />
-        </Switch> */}
         </>
     )
 }

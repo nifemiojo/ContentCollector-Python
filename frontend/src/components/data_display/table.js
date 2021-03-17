@@ -30,14 +30,6 @@ const rows = [
   createData('Tech Lead', 'Youtuber', 'Youtube'),
   createData('Bankless Podcast', 'Crypto Podcast', 'Spotify'),
   createData('Sahil Bloom', 'Life & Business', 'Twitter'),
-  createData('Zingerbread', '', ''),
-  createData('Zingerbread', '', ''),
-  createData('Zingerbread', '', ''),
-  createData('Zingerbread', '', ''),
-  createData('Zingerbread', '', ''),
-  createData('Zingerbread', '', ''),
-  createData('Zingerbread', '', ''),
-  createData('Zingerbread', '', ''),
 ];
 
 function descendingComparator(a, b, orderBy) {

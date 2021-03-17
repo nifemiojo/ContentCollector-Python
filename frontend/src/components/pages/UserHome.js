@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -103,12 +103,12 @@ export default function UserHome() {
             </div>
           </Container>
         </div>
-        <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            <Fetch uri="api/collection/userlist/" renderSuccess={DisplayCards} />
-          </Grid>
-        </Container>
+          <Container className={classes.cardGrid} maxWidth="md">
+            {/* End hero unit */}
+            <Grid container spacing={4}>
+              <Fetch uri="api/collection/userlist/" renderSuccess={DisplayCards} />
+            </Grid>
+          </Container>
       </main>
       {/* Footer */}
       <footer className={classes.footer}>

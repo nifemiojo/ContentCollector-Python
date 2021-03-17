@@ -124,6 +124,10 @@ object-assign
 
 /*! ../hooks/UseFetch */
 
+/*! ../hooks/UseInput */
+
+/*! ../hooks/collectionHooks */
+
 /*! ../internal/SwitchBase */
 
 /*! ../internal/svg-icons/ArrowDownward */
@@ -145,8 +149,6 @@ object-assign
 /*! ../makeStyles */
 
 /*! ../mergeClasses */
-
-/*! ../pages/EditCollection */
 
 /*! ../styles/colorManipulator */
 
@@ -245,6 +247,8 @@ object-assign
 /*! ./colorManipulator */
 
 /*! ./components/App */
+
+/*! ./components/hooks/collectionHooks */
 
 /*! ./config */
 
@@ -591,6 +595,10 @@ object-assign
 /*!************************************************!*\
   !*** ./src/components/pages/EditCollection.js ***!
   \************************************************/
+
+/*!*************************************************!*\
+  !*** ./src/components/hooks/collectionHooks.js ***!
+  \*************************************************/
 
 /*!***************************************************!*\
   !*** ./node_modules/@material-ui/icons/Delete.js ***!
