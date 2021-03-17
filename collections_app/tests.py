@@ -42,14 +42,18 @@ class CollectionTestCase(TestCase):
 
     def test_user_collections_list(self):
         client = self.get_client()
-        response = client.get("http://localhost:8080/api/collection/userlist.json/", format='json')
+        response = client.get("http://localhost:8080/api/collections/", format='json')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.json()), 3)
 
     def test_create_collection(self):
         client = self.get_client()
-        response = client.post("/api/collection/save/", 
-            {'name': "New Collection", 'description': "Testing create api", 'privacyLevel': "Private"}, format='json')
+        requestData = {
+            'name': "New Collection", 
+            'description': "Testing create api", 
+            'privacyLevel': "Private"
+        }
+        response = client.post("/api/collections/create/", requestData , format='json')
         clt = Collection.objects.get(name="New Collection")
         self.assertEqual(clt.user.id, self.user1.id)
         self.assertEqual(response.status_code, 201)
@@ -58,8 +62,8 @@ class CollectionTestCase(TestCase):
     def test_edit_collection(self):
         client = self.get_client()
         clt = Collection.objects.get(name="Collection 2")
-        response = client.put(f"/api/collection/edit/{clt.id}/", 
-            {'name': "Edited Collection", 'description': "Edited", 'privacyLevel': "Private"}, format='json')
+        requestData = {'name': "Edited Collection", 'description': "Edited", 'privacyLevel': "Private"}
+        response = client.put(f"/api/collections/{clt.id}/save/", requestData, format='json')
         self.assertEqual(response.status_code, 200)
 
         newClt = Collection.objects.get(id=clt.id)
@@ -68,7 +72,7 @@ class CollectionTestCase(TestCase):
     def test_delete_collection(self):
         client = self.get_client()
         clt = Collection.objects.get(name="Collection 3")
-        response = client.delete(f"/api/collection/edit/{clt.id}/")
+        response = client.delete(f"/api/collections/{clt.id}/delete/")
         self.assertEqual(response.status_code, 204)
 
         clts = Collection.objects.filter(user=self.user1)

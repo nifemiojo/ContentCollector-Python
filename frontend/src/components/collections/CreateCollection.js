@@ -4,7 +4,7 @@ import { Button, Grid, Typography,
     InputLabel, Select, MenuItem } from "@material-ui/core";
 import Cookies from 'js-cookie';
 
-import { useInput } from './hooks/UseInput';
+import { useInput } from '../hooks/UseInput';
 
 export default function CreateCollection () {
     // Get the CSRF Token
@@ -31,7 +31,7 @@ export default function CreateCollection () {
 
     const submit = e => {
 		e.preventDefault();
-        fetch('/api/collection/save/', requestOptions)
+        fetch('/api/collections/create/', requestOptions)
             .then((res) => res.json())
             .then((data) => console.log(data));
         resetName();

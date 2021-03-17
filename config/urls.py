@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('api/collection/', include('collections_app.urls')),
+    path('api/collections/', include('collections_app.urls')),
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
 ]

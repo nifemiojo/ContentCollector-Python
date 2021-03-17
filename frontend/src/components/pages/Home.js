@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import CollectionsCards from '../collections/CollectionsCards';
-import Fetch from '../fetching/Fetch';
+import Fetch from '../fetch/Fetch';
 
 function Copyright() {
   return (
@@ -63,7 +63,7 @@ function DisplayCards({data}) {
   return <>{data.map((data, i) => <CollectionsCards data={data} key={i}/>)}</> 
 }
 
-export default function UserHome() {
+export default function Home() {
   const classes = useStyles();
 
   return (
@@ -106,7 +106,7 @@ export default function UserHome() {
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
             <Grid container spacing={4}>
-              <Fetch uri="api/collection/userlist/" renderSuccess={DisplayCards} />
+              <Fetch uri="api/collections/" renderSuccess={DisplayCards} />
             </Grid>
           </Container>
       </main>

@@ -3,12 +3,12 @@ import { useParams } from 'react-router';
 import { Button, Grid, Typography, 
     TextField, FormHelperText, FormControl, 
     InputLabel, Select, MenuItem } from "@material-ui/core";
-import { useCollections } from '../hooks/collectionHooks';
+import { useCollections } from '../hooks/CollectionProvider';
 import { useInput } from '../hooks/UseInput';
-import EnhancedTable from '../data_display/table';
+import EnhancedTable from '../data_display/Table';
 import Cookies from 'js-cookie';
 
-export default function EditCollection() {
+export default function CollectionDetail() {
     const csrftoken = Cookies.get('csrftoken');
 
     let { collectionId } = useParams();
@@ -34,7 +34,7 @@ export default function EditCollection() {
 
     const submit = e => {
 		e.preventDefault();
-        fetch(`/api/collection/edit/${clickedCollection.id}/`, requestOptions)
+        fetch(`/api/collections/${clickedCollection.id}/save/`, requestOptions)
             .then((res) => res.json())
             .then((data) => console.log(data));
 	}

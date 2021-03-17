@@ -6,7 +6,7 @@ from ..serializers import CollectionSerializer
 from ..models import Collection
 
 
-class CollectionController(APIView):
+class CollectionDetail(APIView):
     """
     Class handles the saving or updating of Collection resources.
     """

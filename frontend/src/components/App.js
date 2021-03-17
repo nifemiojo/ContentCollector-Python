@@ -5,10 +5,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import CreateCollection from "./CreateCollection";
-import Error404 from "./Error404";
-import UserHome from "./pages/UserHome";
-import EditCollection from "./pages/EditCollection";
+import CreateCollection from "./collections/CreateCollection";
+import Home from "./pages/Home";
+import CollectionDetail from "./collections/CollectionDetail";
 
 export default function App() {
   return (
@@ -35,16 +34,12 @@ export default function App() {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/collections" component={UserHome} />
+          <Route exact path="/collections" component={Home} />
           <Route exact path="/new" component={CreateCollection} />
-          <Route exact path="/collections/:collectionId" component={EditCollection} />
+          <Route exact path="/collections/:collectionId" component={CollectionDetail} />
         </Switch>
       </div>
   );
-}
-
-function Home() {
-  return <h2>Home</h2>;
 }
 
 function Login() {

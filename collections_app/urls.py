@@ -1,17 +1,13 @@
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from .controllers import collection_controller, controllers, ListOfCollections, user_controller
+from .controllers import collection_detail, collection_list
 
-# /api/collection/
+# /api/collections/
 urlpatterns = [
-    path('userlist/', ListOfCollections.ListOfCollections.as_view(), name="listUsersCollections"),
-    path('save/', collection_controller.CollectionController.as_view(), name="collection_controller"),
-    path('edit/<int:collectionId>/', collection_controller.CollectionController.as_view(), name="updateCollection"),
-    path('<int:collectionId>/', collection_controller.CollectionController.as_view(), name="collectionDetailView"),
-    path('<int:collectionId>/<int:contentId>/', collection_controller.CollectionController.as_view(), name="collectionDetailView"),
-    path('users/', user_controller.UserList.as_view()),
-    path('users/<int:pk>/', user_controller.UserDetail.as_view()),
+    path('', collection_list.CollectionList.as_view()), # List all of current users collections
+    path('create/', collection_detail.CollectionDetail.as_view()), # Create new collection (POST) 
+    path('<int:collectionId>/save/', collection_detail.CollectionDetail.as_view()), # Save an edited collection (PUT)
+    path('<int:collectionId>/delete/', collection_detail.CollectionDetail.as_view()), # Delete selected collection
 ]
-
 urlpatterns = format_suffix_patterns(urlpatterns)

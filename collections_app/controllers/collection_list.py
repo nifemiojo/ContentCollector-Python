@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from ..serializers import CollectionSerializer
 from ..models import Collection
 
-class ListOfCollections(APIView):
+class CollectionList(APIView):
 
     def get(self, request, format=None):
         """

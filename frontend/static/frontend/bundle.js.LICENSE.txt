@@ -112,9 +112,9 @@ object-assign
 
 /*! ../createGenerateClassName */
 
-/*! ../data_display/table */
+/*! ../data_display/Table */
 
-/*! ../fetching/Fetch */
+/*! ../fetch/Fetch */
 
 /*! ../getStylesCreator */
 
@@ -122,11 +122,11 @@ object-assign
 
 /*! ../getThemeProps */
 
+/*! ../hooks/CollectionProvider */
+
 /*! ../hooks/UseFetch */
 
 /*! ../hooks/UseInput */
-
-/*! ../hooks/collectionHooks */
 
 /*! ../internal/SwitchBase */
 
@@ -190,10 +190,6 @@ object-assign
 
 /*! ../utils/useIsFocusVisible */
 
-/*! ./CreateCollection */
-
-/*! ./Error404 */
-
 /*! ./FormControlContext */
 
 /*! ./ListContext */
@@ -244,11 +240,15 @@ object-assign
 
 /*! ./cjs/scheduler.development.js */
 
+/*! ./collections/CollectionDetail */
+
+/*! ./collections/CreateCollection */
+
 /*! ./colorManipulator */
 
 /*! ./components/App */
 
-/*! ./components/hooks/collectionHooks */
+/*! ./components/hooks/CollectionProvider */
 
 /*! ./config */
 
@@ -275,8 +275,6 @@ object-assign
 /*! ./deprecatedPropType */
 
 /*! ./factoryWithTypeCheckers */
-
-/*! ./hooks/UseInput */
 
 /*! ./indexCounter */
 
@@ -306,9 +304,7 @@ object-assign
 
 /*! ./ownerWindow */
 
-/*! ./pages/EditCollection */
-
-/*! ./pages/UserHome */
+/*! ./pages/Home */
 
 /*! ./requirePropFactory */
 
@@ -520,16 +516,20 @@ object-assign
   !*** ./src/components/App.js ***!
   \*******************************/
 
-/*!************************************!*\
-  !*** ./src/components/Error404.js ***!
-  \************************************/
-
 /*!*************************************!*\
   !*** ./node_modules/react/index.js ***!
   \*************************************/
 
+/*!**************************************!*\
+  !*** ./src/components/pages/Home.js ***!
+  \**************************************/
+
 /*!***************************************!*\
   !*** ./node_modules/isarray/index.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/components/fetch/Fetch.js ***!
   \***************************************/
 
 /*!****************************************!*\
@@ -557,10 +557,6 @@ object-assign
   \******************************************/
 
 /*!******************************************!*\
-  !*** ./src/components/fetching/Fetch.js ***!
-  \******************************************/
-
-/*!******************************************!*\
   !*** ./src/components/hooks/UseFetch.js ***!
   \******************************************/
 
@@ -568,17 +564,9 @@ object-assign
   !*** ./src/components/hooks/UseInput.js ***!
   \******************************************/
 
-/*!******************************************!*\
-  !*** ./src/components/pages/UserHome.js ***!
-  \******************************************/
-
 /*!*******************************************!*\
   !*** ./node_modules/scheduler/tracing.js ***!
   \*******************************************/
-
-/*!********************************************!*\
-  !*** ./src/components/CreateCollection.js ***!
-  \********************************************/
 
 /*!*********************************************!*\
   !*** ./node_modules/history/esm/history.js ***!
@@ -589,16 +577,8 @@ object-assign
   \*********************************************/
 
 /*!**********************************************!*\
-  !*** ./src/components/data_display/table.js ***!
+  !*** ./src/components/data_display/Table.js ***!
   \**********************************************/
-
-/*!************************************************!*\
-  !*** ./src/components/pages/EditCollection.js ***!
-  \************************************************/
-
-/*!*************************************************!*\
-  !*** ./src/components/hooks/collectionHooks.js ***!
-  \*************************************************/
 
 /*!***************************************************!*\
   !*** ./node_modules/@material-ui/icons/Delete.js ***!
@@ -618,6 +598,10 @@ object-assign
 
 /*!****************************************************!*\
   !*** ./node_modules/hyphenate-style-name/index.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./src/components/hooks/CollectionProvider.js ***!
   \****************************************************/
 
 /*!*****************************************************!*\
@@ -661,7 +645,15 @@ object-assign
   \********************************************************/
 
 /*!********************************************************!*\
+  !*** ./src/components/collections/CollectionDetail.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
   !*** ./src/components/collections/CollectionsCards.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./src/components/collections/CreateCollection.js ***!
   \********************************************************/
 
 /*!*********************************************************!*\

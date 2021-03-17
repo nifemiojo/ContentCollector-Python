@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link, useRouteMatch } from "react-router-dom";
-import { useCollections } from '../hooks/collectionHooks';
+import { useCollections } from '../hooks/CollectionProvider';
 import Cookies from 'js-cookie';
 
 
@@ -63,7 +63,7 @@ export default function CollectionsCards({data, key}) {
 
     const handleDel = (e) => {
         console.log("Deleting...");
-        fetch(`/api/collection/edit/${data.id}/`, requestOptions)
+        fetch(`/api/collections/${data.id}/delete/`, requestOptions)
             .then((data) => console.log(data))
             .catch((err) => console.error(err));
         
