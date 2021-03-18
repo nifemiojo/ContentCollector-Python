@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework.test import APIClient
 
 
-from .models import Content, Collection, Tag
+from ..models import Content, Collection
 
 # Create your tests here.
 class CollectionTestCase(TestCase):
@@ -14,17 +14,6 @@ class CollectionTestCase(TestCase):
         Collection.objects.create(name="Collection 2", privacyLevel="Public", user=self.user1)
         Collection.objects.create(name="Collection 3", privacyLevel="Public", user=self.user1)
         Collection.objects.create(name="Collection 4", privacyLevel="Public", user=self.user2)
-
-        """ cnt1 = Content.objects.create(title="Learning React, 2nd Edition", description="React Book")
-        cnt2 = Content.objects.create(title="Django By Example", description="Django book")
-        cnt3 = Content.objects.create(title="Coding Entrepreneurs", description="Coding Youtuber", link="https://www.youtube.com/")
-
-        ctg1 = Tag.objects.create(name="Coding")
-        ctg2 = Tag.objects.create(name="Twitter")
-
-        clt1.contents.add(cnt1, cnt2, cnt3)
-        clt1.categories.add(ctg1)
-        clt2.categories.add(ctg2) """
 
     def test_user_created(self):
         users = User.objects.all()
