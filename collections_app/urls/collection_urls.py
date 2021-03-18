@@ -9,6 +9,6 @@ urlpatterns = [
     path('create/', collection_detail.CollectionDetail.as_view()), # Create new collection (POST) 
     path('<int:collectionId>/save/', collection_detail.CollectionDetail.as_view()), # Save an edited collection (PUT)
     path('<int:collectionId>/delete/', collection_detail.CollectionDetail.as_view()), # Delete selected collection
-    path('<int:collectionId>/content/', collection_detail.CollectionDetail.as_view()), # Delete selected collection
+    path('<int:collectionId>/content/', include('collections_app.urls.content_urls')), # Delete selected collection
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from .models import Collection
+from .models import Collection, Content
 
 
 # Translates model to JSON response either incoming or outgoing
@@ -10,12 +10,15 @@ from .models import Collection
 class CollectionSerializer(serializers.ModelSerializer):
     class Meta():
         model = Collection
-        # Takes data from req, fields expected in POST req
         fields = ['id', 'name', 'description', 'privacyLevel']
+
+class ContentSerializer(serializers.ModelSerializer):
+    class Meta():
+        model = Content
+        fields = ['id', 'title','description', 'link']
 
 class UserSerializer(serializers.ModelSerializer):
     collections = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-
     class Meta:
         model = User
         fields = ['id', 'username', 'collections']

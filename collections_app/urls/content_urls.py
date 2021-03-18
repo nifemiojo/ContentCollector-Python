@@ -1,12 +1,12 @@
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 
+from ..controllers import content
+
 # /api/collections/<int:collectionId>/content/
 urlpatterns = [
-    path('', function), # List all content in collection 
-    path('create/', function), # Create new content (POST) 
-    path('<int:collectionId>/<int:contentId>/save/', function), # Save an edited content (PUT)
-    path('<int:collectionId>/<int:contentId>/delete/', function), # Delete selected content
+    path('', content.ContentList.as_view()), # List all content in collection 
+    path('create/', content.ContentList.as_view()), # Create new content (POST) 
+    path('<int:contentId>/save/', content.ContentDetail.as_view()), # Save an edited content (PUT)
+    path('<int:contentId>/delete/', content.ContentDetail.as_view()), # Delete selected content
 ]
-
-urlpatterns = format_suffix_patterns(urlpatterns)
