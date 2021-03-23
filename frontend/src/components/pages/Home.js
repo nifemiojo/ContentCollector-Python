@@ -60,7 +60,13 @@ const useStyles = makeStyles((theme) => ({
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function DisplayCards({data}) { 
-  return <>{data.map((data, i) => <CollectionsCards data={data} key={i}/>)}</> 
+  return (
+    <>
+    <Grid container spacing={4}>
+      {data.map((data, i) => <CollectionsCards data={data} key={i}/>)}
+    </Grid>
+    </>
+  ) 
 }
 
 export default function Home() {
@@ -90,7 +96,7 @@ export default function Home() {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button href="/new" component={Link} variant="contained" color="primary">
+                  <Button href="/collections/new" component={Link} variant="contained" color="primary">
                     + New Collection
                   </Button>
                 </Grid>
@@ -105,9 +111,7 @@ export default function Home() {
         </div>
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
-            <Grid container spacing={4}>
               <Fetch uri="api/collections/" renderSuccess={DisplayCards} />
-            </Grid>
           </Container>
       </main>
       {/* Footer */}

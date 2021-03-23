@@ -43,9 +43,12 @@ REST_FRAMEWORK = {
 # Application definition
 
 INSTALLED_APPS = [
+    # Internal
     'collections_app.apps.CollectionsConfig',
     'frontend.apps.FrontendConfig',
+    # Third-party
     'rest_framework',
+    # Django defaults
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

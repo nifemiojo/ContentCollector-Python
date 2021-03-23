@@ -8,6 +8,8 @@ import {
 import CreateCollection from "./collections/CreateCollection";
 import Home from "./pages/Home";
 import CollectionDetail from "./collections/CollectionDetail";
+import UserProfile from "./pages/UserProfile";
+import ContentList from "./content/ContentList"
 
 export default function App() {
   return (
@@ -35,8 +37,10 @@ export default function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/collections" component={Home} />
-          <Route exact path="/new" component={CreateCollection} />
+          <Route exact path="/collections/new" component={CreateCollection} />
           <Route exact path="/collections/:collectionId" component={CollectionDetail} />
+          <Route exact path="/:username/" component={UserProfile} />
+          <Route exact path="/:username/:collectionId" component={ContentList} />
         </Switch>
       </div>
   );

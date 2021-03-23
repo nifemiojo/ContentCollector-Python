@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CollectionsCards({data, key}) {
     const classes = useStyles();
     const match = useRouteMatch();
+    console.log(match);
     const { setClickedCollection } = useCollections();
     const csrftoken = Cookies.get('csrftoken');
 
@@ -88,12 +89,17 @@ export default function CollectionsCards({data, key}) {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" color="primary" onClick={() => setClickedCollection(data)} component={Link} to={`${match.path}/${data.id}`}>
+                  {match.path == "/collections"
+                    ? <Button size="small" color="primary" onClick={() => setClickedCollection(data)} component={Link} to={`${match.path}/${data.id}`}>
                         Edit
                     </Button>
+                    :<Button size="small" color="primary" onClick={() => setClickedCollection(data)} component={Link} to={`${match.url}/${data.id}`}>
+                       View
+                    </Button>}
+                    {match.path == "/collections" &&
                     <Button size="small" color="secondary" onClick={handleDel}>
                         Delete
-                    </Button>
+                    </Button>}
                 </CardActions>
             </Card>
         </Grid>

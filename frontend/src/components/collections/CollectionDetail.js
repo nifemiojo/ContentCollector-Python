@@ -39,7 +39,6 @@ export default function CollectionDetail() {
             .then((data) => console.log(data));
 	}
 
-
     return (
         <>
             {/* Will need to fetch if the clickedCollection is Null */}

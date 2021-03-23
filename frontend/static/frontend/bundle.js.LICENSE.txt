@@ -32,8 +32,6 @@ object-assign
 
 /*! ../Grow */
 
-/*! ../IconButton */
-
 /*! ../Input */
 
 /*! ../InputBase */
@@ -50,8 +48,6 @@ object-assign
 
 /*! ../Menu/Menu */
 
-/*! ../MenuItem */
-
 /*! ../MenuList */
 
 /*! ../Modal */
@@ -66,8 +62,6 @@ object-assign
 
 /*! ../Popover */
 
-/*! ../Popper */
-
 /*! ../Portal */
 
 /*! ../Select */
@@ -80,13 +74,9 @@ object-assign
 
 /*! ../Table/Tablelvl2Context */
 
-/*! ../TableCell */
-
 /*! ../TextareaAutosize */
 
 /*! ../ThemeProvider/nested */
-
-/*! ../Toolbar */
 
 /*! ../Typography */
 
@@ -128,21 +118,9 @@ object-assign
 
 /*! ../hooks/UseInput */
 
-/*! ../internal/SwitchBase */
-
-/*! ../internal/svg-icons/ArrowDownward */
-
 /*! ../internal/svg-icons/ArrowDropDown */
 
-/*! ../internal/svg-icons/CheckBox */
-
-/*! ../internal/svg-icons/CheckBoxOutlineBlank */
-
-/*! ../internal/svg-icons/IndeterminateCheckBox */
-
-/*! ../internal/svg-icons/KeyboardArrowLeft */
-
-/*! ../internal/svg-icons/KeyboardArrowRight */
+/*! ../internal/svg-icons/Person */
 
 /*! ../jssPreset */
 
@@ -162,6 +140,8 @@ object-assign
 
 /*! ../useTheme */
 
+/*! ../user/UserDetail */
+
 /*! ../utils/capitalize */
 
 /*! ../utils/createChainedFunction */
@@ -179,8 +159,6 @@ object-assign
 /*! ../utils/requirePropFactory */
 
 /*! ../utils/setRef */
-
-/*! ../utils/unstable_useId */
 
 /*! ../utils/useControlled */
 
@@ -207,8 +185,6 @@ object-assign
 /*! ./SimpleBackdrop */
 
 /*! ./TableContext */
-
-/*! ./TablePaginationActions */
 
 /*! ./ThemeContext */
 
@@ -251,6 +227,8 @@ object-assign
 /*! ./components/hooks/CollectionProvider */
 
 /*! ./config */
+
+/*! ./content/ContentList */
 
 /*! ./createBreakpoints */
 
@@ -305,6 +283,8 @@ object-assign
 /*! ./ownerWindow */
 
 /*! ./pages/Home */
+
+/*! ./pages/UserProfile */
 
 /*! ./requirePropFactory */
 
@@ -386,23 +366,15 @@ object-assign
 
 /*! @material-ui/core/CardMedia */
 
-/*! @material-ui/core/Checkbox */
-
 /*! @material-ui/core/Container */
 
 /*! @material-ui/core/CssBaseline */
 
-/*! @material-ui/core/FormControlLabel */
-
 /*! @material-ui/core/Grid */
-
-/*! @material-ui/core/IconButton */
 
 /*! @material-ui/core/Link */
 
 /*! @material-ui/core/Paper */
-
-/*! @material-ui/core/Switch */
 
 /*! @material-ui/core/Table */
 
@@ -414,25 +386,15 @@ object-assign
 
 /*! @material-ui/core/TableHead */
 
-/*! @material-ui/core/TablePagination */
-
 /*! @material-ui/core/TableRow */
 
-/*! @material-ui/core/TableSortLabel */
-
 /*! @material-ui/core/Toolbar */
-
-/*! @material-ui/core/Tooltip */
 
 /*! @material-ui/core/Typography */
 
 /*! @material-ui/core/styles */
 
 /*! @material-ui/core/utils */
-
-/*! @material-ui/icons/Delete */
-
-/*! @material-ui/icons/FilterList */
 
 /*! @material-ui/icons/PhotoCamera */
 
@@ -479,8 +441,6 @@ object-assign
 /*! object-assign */
 
 /*! path-to-regexp */
-
-/*! popper.js */
 
 /*! prop-types */
 
@@ -568,6 +528,10 @@ object-assign
   !*** ./node_modules/scheduler/tracing.js ***!
   \*******************************************/
 
+/*!*******************************************!*\
+  !*** ./src/components/user/UserDetail.js ***!
+  \*******************************************/
+
 /*!*********************************************!*\
   !*** ./node_modules/history/esm/history.js ***!
   \*********************************************/
@@ -576,20 +540,20 @@ object-assign
   !*** ./node_modules/object-assign/index.js ***!
   \*********************************************/
 
+/*!*********************************************!*\
+  !*** ./src/components/pages/UserProfile.js ***!
+  \*********************************************/
+
 /*!**********************************************!*\
   !*** ./src/components/data_display/Table.js ***!
   \**********************************************/
 
-/*!***************************************************!*\
-  !*** ./node_modules/@material-ui/icons/Delete.js ***!
-  \***************************************************/
+/*!***********************************************!*\
+  !*** ./src/components/content/ContentList.js ***!
+  \***********************************************/
 
 /*!***************************************************!*\
   !*** ./node_modules/is-in-browser/dist/module.js ***!
-  \***************************************************/
-
-/*!***************************************************!*\
-  !*** ./node_modules/popper.js/dist/esm/popper.js ***!
   \***************************************************/
 
 /*!***************************************************!*\
@@ -614,10 +578,6 @@ object-assign
 
 /*!*******************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
-  \*******************************************************/
-
-/*!*******************************************************!*\
-  !*** ./node_modules/@material-ui/icons/FilterList.js ***!
   \*******************************************************/
 
 /*!*******************************************************!*\
@@ -773,11 +733,11 @@ object-assign
   \*************************************************************/
 
 /*!*************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/Button/Button.js ***!
+  !*** ./node_modules/@material-ui/core/esm/Avatar/Avatar.js ***!
   \*************************************************************/
 
 /*!*************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/Popper/Popper.js ***!
+  !*** ./node_modules/@material-ui/core/esm/Button/Button.js ***!
   \*************************************************************/
 
 /*!*************************************************************!*\
@@ -786,10 +746,6 @@ object-assign
 
 /*!*************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/Select/Select.js ***!
-  \*************************************************************/
-
-/*!*************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/Switch/Switch.js ***!
   \*************************************************************/
 
 /*!*************************************************************!*\
@@ -846,10 +802,6 @@ object-assign
 
 /*!***************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/Toolbar/Toolbar.js ***!
-  \***************************************************************/
-
-/*!***************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/Tooltip/Tooltip.js ***!
   \***************************************************************/
 
 /*!***************************************************************!*\
@@ -910,10 +862,6 @@ object-assign
 
 /*!*****************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/ButtonBase/Ripple.js ***!
-  \*****************************************************************/
-
-/*!*****************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/Checkbox/Checkbox.js ***!
   \*****************************************************************/
 
 /*!*****************************************************************!*\
@@ -1033,10 +981,6 @@ object-assign
   \*******************************************************************/
 
 /*!*******************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/internal/SwitchBase.js ***!
-  \*******************************************************************/
-
-/*!*******************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/createMixins.js ***!
   \*******************************************************************/
 
@@ -1106,10 +1050,6 @@ object-assign
 
 /*!*********************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/ButtonBase/ButtonBase.js ***!
-  \*********************************************************************/
-
-/*!*********************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/IconButton/IconButton.js ***!
   \*********************************************************************/
 
 /*!*********************************************************************!*\
@@ -1261,6 +1201,10 @@ object-assign
   \*************************************************************************/
 
 /*!*************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/Person.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
   !*** ./node_modules/@material-ui/styles/esm/makeStyles/indexCounter.js ***!
   \*************************************************************************/
 
@@ -1278,10 +1222,6 @@ object-assign
 
 /*!***************************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/OutlinedInput/OutlinedInput.js ***!
-  \***************************************************************************/
-
-/*!***************************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBox.js ***!
   \***************************************************************************/
 
 /*!***************************************************************************!*\
@@ -1321,10 +1261,6 @@ object-assign
   \*****************************************************************************/
 
 /*!*****************************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/TableSortLabel/TableSortLabel.js ***!
-  \*****************************************************************************/
-
-/*!*****************************************************************************!*\
   !*** ./node_modules/@material-ui/styles/esm/getThemeProps/getThemeProps.js ***!
   \*****************************************************************************/
 
@@ -1353,16 +1289,8 @@ object-assign
   \*******************************************************************************/
 
 /*!*******************************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/TablePagination/TablePagination.js ***!
-  \*******************************************************************************/
-
-/*!*******************************************************************************!*\
   !*** ./node_modules/@material-ui/styles/esm/StylesProvider/StylesProvider.js ***!
   \*******************************************************************************/
-
-/*!********************************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/ArrowDownward.js ***!
-  \********************************************************************************/
 
 /*!********************************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/ArrowDropDown.js ***!
@@ -1370,10 +1298,6 @@ object-assign
 
 /*!*********************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
-  \*********************************************************************************/
-
-/*!*********************************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/FormControlLabel/FormControlLabel.js ***!
   \*********************************************************************************/
 
 /*!*********************************************************************************!*\
@@ -1396,33 +1320,13 @@ object-assign
   !*** ./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js ***!
   \***********************************************************************************/
 
-/*!************************************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowLeft.js ***!
-  \************************************************************************************/
-
 /*!*************************************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/Unstable_TrapFocus/Unstable_TrapFocus.js ***!
   \*************************************************************************************/
 
 /*!*************************************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/KeyboardArrowRight.js ***!
-  \*************************************************************************************/
-
-/*!*************************************************************************************!*\
   !*** ./node_modules/react-router/node_modules/react-is/cjs/react-is.development.js ***!
   \*************************************************************************************/
-
-/*!**************************************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/TablePagination/TablePaginationActions.js ***!
-  \**************************************************************************************/
-
-/*!***************************************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBoxOutlineBlank.js ***!
-  \***************************************************************************************/
-
-/*!****************************************************************************************!*\
-  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/IndeterminateCheckBox.js ***!
-  \****************************************************************************************/
 
 /*!****************************************************************************************!*\
   !*** ./node_modules/jss-plugin-vendor-prefixer/dist/jss-plugin-vendor-prefixer.esm.js ***!
@@ -1514,29 +1418,4 @@ object-assign
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */
-
-/**!
- * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.16.1-lts
- * @license
- * Copyright (c) 2016 Federico Zivolo and contributors
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
  */
