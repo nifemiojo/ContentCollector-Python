@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('auth/', include('authentication.urls')),
     path('api/collections/', include('collections_app.urls.collection_urls')),
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),

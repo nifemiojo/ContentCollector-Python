@@ -33,19 +33,23 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
     ],
-
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
-
     'TEST_REQUEST_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer'
-        ]
+    ],
+    'NON_FIELD_ERRORS_KEY': 'error'
 }
-# Application definition
+
+AUTH_USER_MODEL = 'authentication.User'
 
 INSTALLED_APPS = [
     # Internal
     'collections_app.apps.CollectionsConfig',
     'frontend.apps.FrontendConfig',
+    'authentication.apps.AuthenticationConfig',
     # Third-party
     'rest_framework',
     # Django defaults
@@ -143,3 +147,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "frontend/static")
 ]
+
+DEFAULT_FROM_EMAIL=os.environ.get('EMAIL_HOST_USER')
+EMAIL_USE_TLS=True
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER=os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')

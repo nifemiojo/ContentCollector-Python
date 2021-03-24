@@ -11,6 +11,7 @@ django = "==3.1"
 psycopg2 = "*"
 pillow = "*"
 djangorestframework = "*"
+djangorestframework-simplejwt = "*"
 
 [requires]
 python_version = "3.7"
