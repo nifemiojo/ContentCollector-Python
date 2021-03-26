@@ -8,8 +8,8 @@ from collections_app.models import Content, Collection
 # Create your tests here.
 class ContentTestCase(TestCase):
     def setUp(self):
-        self.user1 = User.objects.create_user(username='LamsUser', password='offthewall')
-        self.user2 = User.objects.create_user(username='TestUser', password='hello123')
+        self.user1 = User.objects.create_user(username='LamsUser', email="lamide@test.com", password='offthewall')
+        self.user2 = User.objects.create_user(username='TestUser', email="test@test.com", password='hello123')
         clt1 = Collection.objects.create(name="Lams Col 1", privacyLevel="Public", user=self.user1)
         clt2 = Collection.objects.create(name="Lams Col 2", privacyLevel="Public", user=self.user1)
         clt3 = Collection.objects.create(name="Test Col 1", privacyLevel="Public", user=self.user2)
@@ -21,7 +21,7 @@ class ContentTestCase(TestCase):
 
     def get_client(self):
         client = APIClient()
-        client.login(username='LamsUser', password='offthewall')
+        client.force_authenticate(user=self.user1)
         return client
 
     def test_user_content_list(self):

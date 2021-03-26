@@ -28,10 +28,10 @@ class CollectionDetail(APIView):
         """
         Auth users only
         """
+        # TODO Make sure authenticated users only
         user = request.user
         serializer = CollectionSerializer(data=request.data)
 
-        # Check Data in post request is valid
         if serializer.is_valid() and user:
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)

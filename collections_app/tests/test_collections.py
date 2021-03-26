@@ -8,8 +8,8 @@ from collections_app.models import Content, Collection
 # Create your tests here.
 class CollectionTestCase(TestCase):
     def setUp(self):
-        self.user1 = User.objects.create_user(username='lamideD', password='offthewall')
-        self.user2 = User.objects.create_user(username='TestUser', password='hello123')
+        self.user1 = User.objects.create_user(username='lamideD', email="lamide@test.com", password='offthewall')
+        self.user2 = User.objects.create_user(username='TestUser', email="test@test.com", password='hello123')
         Collection.objects.create(name="My Favourite Youtubers", privacyLevel="Public", user=self.user1)
         Collection.objects.create(name="Collection 2", privacyLevel="Public", user=self.user1)
         Collection.objects.create(name="Collection 3", privacyLevel="Public", user=self.user1)
@@ -26,7 +26,7 @@ class CollectionTestCase(TestCase):
         
     def get_client(self):
         client = APIClient()
-        client.login(username='lamideD', password='offthewall')
+        client.force_authenticate(user=self.user1)
         return client
 
     def test_user_collections_list(self):
