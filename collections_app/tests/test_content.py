@@ -75,7 +75,7 @@ class ContentTestCase(TestCase):
         newCnt = Content.objects.get(id=content.id)
         self.assertEqual(newCnt.description, "testing123")
 
-    def test_delete_collection(self):
+    def test_delete_content(self):
         client = self.get_client()
 
         collection = Collection.objects.get(name="Lams Col 1")

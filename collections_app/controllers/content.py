@@ -14,7 +14,7 @@ class ContentList(generics.ListAPIView):
 
     def get_queryset(self):
         collection = Collection.objects.get(id=self.kwargs["collectionId"])
-        if collection.id != self.request.user.id:
+        if collection.user.id != self.request.user.id:
             return self.queryset.filter(collection=self.kwargs["collectionId"], collection__privacyLevel="Public")
         return self.queryset.filter(collection=self.kwargs["collectionId"])
 
@@ -67,6 +67,7 @@ class DeleteContent(generics.DestroyAPIView):
         except:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
+        obj.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
         
 

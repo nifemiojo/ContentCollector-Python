@@ -10,7 +10,7 @@ from authentication.models import User
 class FullCollectionList(APIView):
     permission_classes = [IsAuthenticated]
 
-    def get(self, request, format=None):
+    def get(self, request):
         """
         REST API View
         Returns complete list of users collections upon GET request
@@ -23,7 +23,7 @@ class FullCollectionList(APIView):
 
 class PublicCollectionList(APIView):
 
-    def get(self, request, username, format=None):
+    def get(self, request, username):
         """
         REST API View
         Returns list of a users PUBLIC collections upon GET request

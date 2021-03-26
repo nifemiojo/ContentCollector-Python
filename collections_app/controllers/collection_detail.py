@@ -1,62 +1,43 @@
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+
 
 from ..serializers import CollectionSerializer
 from ..models import Collection
 
-
-class CollectionDetail(APIView):
+class GetEditDelCollection(generics.RetrieveUpdateDestroyAPIView):
     """
-    Class handles the creating, saving, updating and deleting of Collection resources.
+    GET: An individual collections detail
+    If collection is private then user id must match collection Id
     """
+    queryset = Collection.objects.all()
+    serializer_class = CollectionSerializer
 
-    def get(self, request, collectionId, format=None): 
-        """
-        Returns an individual collection
-        """
-        user = request.user
-        collection = Collection.objects.get(id=collectionId)
-
-        if collection.user.id != user.id and collection.privacyLevel == "Private":
+    def get_object(self):
+        collection = Collection.objects.get(id=self.kwargs["collectionId"])
+        if self.request.method == 'GET' and collection.user.id != self.request.user.id and collection.privacyLevel == "Private":
             return Response({'Bad Request': 'Unauthorized. Permission Denied'}, status=status.HTTP_403_FORBIDDEN)
-
-        serializer = CollectionSerializer(collection)
-        return Response(serializer.data)
-
-    def post(self, request, format=None):
-        """
-        Auth users only
-        """
-        # TODO Make sure authenticated users only
-        user = request.user
-        serializer = CollectionSerializer(data=request.data)
-
-        if serializer.is_valid() and user:
-            serializer.save(user=request.user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-        return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
-
-    def put(self, request, collectionId):
-        user = request.user
-        collection = Collection.objects.get(id=collectionId)
-
-        if collection.user.id != user.id:
+        elif self.request.method != 'GET' and collection.user.id != self.request.user.id:
             return Response({'Bad Request': 'Unauthorized. Permission Denied'}, status=status.HTTP_403_FORBIDDEN)
-        
-        serializer = CollectionSerializer(collection, data=request.data)
-        if serializer.is_valid():
-            serializer.save(user=request.user)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return collection
 
-    def delete(self, request, collectionId):
-        collection = Collection.objects.get(id=collectionId)
-        user = request.user
+    def perform_update(self, serializer):
+        serializer.save(user=self.request.user)
 
-        if collection.user.id != user.id:
-            return Response({'Bad Request': 'Unauthorized. Permission Denied'}, status=status.HTTP_403_FORBIDDEN)
+    def perform_destroy(self, instance):
+        try:
+            obj = self.get_object()
+        except:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
-        collection.delete()
+        obj.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class CreateCollection(generics.CreateAPIView):
+    serializer_class = CollectionSerializer
+    permissions_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
