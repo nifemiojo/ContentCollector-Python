@@ -1,9 +1,9 @@
 from django.test import TestCase
-from django.contrib.auth.models import User
+from authentication.models import User
 from rest_framework.test import APIClient
 
 
-from ..models import Content, Collection
+from collections_app.models import Content, Collection
 
 # Create your tests here.
 class ContentTestCase(TestCase):

@@ -12,6 +12,7 @@ psycopg2 = "*"
 pillow = "*"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.7"

@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     # Third-party
     'rest_framework',
+    'drf_yasg',
     # Django defaults
     'django.contrib.admin',
     'django.contrib.auth',
@@ -60,6 +61,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from authentication.models import User
 from .models import Collection, Content
 
 
@@ -15,10 +14,3 @@ class ContentSerializer(serializers.ModelSerializer):
     class Meta():
         model = Content
         fields = ['id', 'title','description', 'link']
-
-class UserSerializer(serializers.ModelSerializer):
-    collections = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'collections']
-  
