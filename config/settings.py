@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'corsheaders',
+    'rest_framework_simplejwt.token_blacklist',
     # Django defaults
     'django.contrib.admin',
     'django.contrib.auth',
