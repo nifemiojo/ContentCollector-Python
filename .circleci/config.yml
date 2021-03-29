@@ -12,9 +12,9 @@ jobs:
       # - python/install-deps
       # - python/save-cache
       - run:
-          command: 
-            sudo pip install pipenv
-            pipenv install
+          command: |
+            pip install pipenv &&
+            pipenv install &&
             ./manage.py test
           name: Test
 
