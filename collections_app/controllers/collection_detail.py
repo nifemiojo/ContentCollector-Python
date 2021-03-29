@@ -36,10 +36,6 @@ class GetEditDelCollection(generics.RetrieveUpdateDestroyAPIView):
     def get_object(self):
         collection = Collection.objects.get(id=self.kwargs["collectionId"])
         self.check_object_permissions(self.request, collection)
-        """ if self.request.method == 'GET' and collection.user.id != self.request.user.id and collection.privacyLevel == "Private":
-            return Response({'Bad Request': 'Unauthorized. Permission Denied'}, status=status.HTTP_403_FORBIDDEN)
-        elif self.request.method != 'GET' and collection.user.id != self.request.user.id:
-            return Response({'Bad Request': 'Unauthorized. Permission Denied'}, status=status.HTTP_403_FORBIDDEN) """
         return collection
 
     def perform_update(self, serializer):
