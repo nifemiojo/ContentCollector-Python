@@ -16,8 +16,7 @@ jobs:
             sudo pip install pipenv &&
             sudo apt install libpq-dev python3.7-dev &&
             pipenv install &&
-            pipenv shell &&
-            python manage.py test
+            pipenv run python manage.py test
           name: Test
 
 workflows:
