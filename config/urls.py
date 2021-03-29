@@ -26,3 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
 ]
+
+
+handler404 = 'utils.views.error_404'
+handler500 = 'utils.views.error_500'
