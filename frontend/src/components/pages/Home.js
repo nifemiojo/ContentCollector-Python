@@ -11,19 +11,9 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import CollectionsCards from '../collections/CollectionsCards';
 import Fetch from '../fetch/Fetch';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Content Collector
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import axios from 'axios';
+import { useAuth } from '../auth/ProvideAuth';
+import { Redirect } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -57,20 +47,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 function DisplayCards({data}) { 
+  if (Object.keys(data).length === 0) {
+    return (
+      <Typography component="h1" variant="h2" align="center" color="textPrimary">
+        Create a new collection!
+      </Typography>
+    );
+  }
   return (
     <>
     <Grid container spacing={4}>
       {data.map((data, i) => <CollectionsCards data={data} key={i}/>)}
     </Grid>
     </>
-  ) 
+  );
 }
 
 export default function Home() {
   const classes = useStyles();
+  let auth = useAuth();
+
+  const logout = () => {
+      auth.signout(() => {});
+      return <Redirect to="/"/>
+  };
+
+  const config = {
+    url: '/api/collections/',
+    method: 'get',
+  };
 
   return (
     <React.Fragment>
@@ -101,7 +107,7 @@ export default function Home() {
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="primary">
+                  <Button variant="outlined" color="primary" onClick={() => logout()}>
                     Logout
                   </Button>
                 </Grid>
@@ -111,7 +117,7 @@ export default function Home() {
         </div>
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
-              <Fetch uri="api/collections/" renderSuccess={DisplayCards} />
+              <Fetch config={config} renderSuccess={DisplayCards} />
           </Container>
       </main>
       {/* Footer */}
@@ -122,7 +128,6 @@ export default function Home() {
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
           Share your influences!
         </Typography>
-        <Copyright />
       </footer>
       {/* End footer */}
     </React.Fragment>

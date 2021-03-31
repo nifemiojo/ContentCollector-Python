@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { Button, Grid, Typography, 
     TextField, FormHelperText, FormControl, 
     InputLabel, Select, MenuItem } from "@material-ui/core";
-import { useCollections } from '../hooks/CollectionProvider';
+import { useCollections } from '../context_providers/CollectionProvider';
 import { useInput } from '../hooks/UseInput';
 import EnhancedTable from '../data_display/Table';
 import Cookies from 'js-cookie';

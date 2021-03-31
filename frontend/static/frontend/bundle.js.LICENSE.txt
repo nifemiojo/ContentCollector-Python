@@ -32,6 +32,8 @@ object-assign
 
 /*! ../Grow */
 
+/*! ../IconButton */
+
 /*! ../Input */
 
 /*! ../InputBase */
@@ -82,6 +84,10 @@ object-assign
 
 /*! ../Unstable_TrapFocus */
 
+/*! ../auth/ProvideAuth */
+
+/*! ../cancel/isCancel */
+
 /*! ../collections/CollectionsCards */
 
 /*! ../colors/blue */
@@ -100,9 +106,19 @@ object-assign
 
 /*! ../colors/red */
 
+/*! ../context_providers/CollectionProvider */
+
+/*! ../context_providers/UserProvider */
+
+/*! ../core/buildFullPath */
+
+/*! ../core/createError */
+
 /*! ../createGenerateClassName */
 
 /*! ../data_display/Table */
+
+/*! ../defaults */
 
 /*! ../fetch/Fetch */
 
@@ -112,13 +128,23 @@ object-assign
 
 /*! ../getThemeProps */
 
-/*! ../hooks/CollectionProvider */
+/*! ../helpers/buildURL */
 
-/*! ../hooks/UseFetch */
+/*! ../helpers/combineURLs */
+
+/*! ../helpers/isAbsoluteURL */
 
 /*! ../hooks/UseInput */
 
+/*! ../internal/SwitchBase */
+
 /*! ../internal/svg-icons/ArrowDropDown */
+
+/*! ../internal/svg-icons/CheckBox */
+
+/*! ../internal/svg-icons/CheckBoxOutlineBlank */
+
+/*! ../internal/svg-icons/IndeterminateCheckBox */
 
 /*! ../internal/svg-icons/Person */
 
@@ -141,6 +167,8 @@ object-assign
 /*! ../useTheme */
 
 /*! ../user/UserDetail */
+
+/*! ../utils */
 
 /*! ../utils/capitalize */
 
@@ -168,7 +196,23 @@ object-assign
 
 /*! ../utils/useIsFocusVisible */
 
+/*! ./../core/settle */
+
+/*! ./../helpers/buildURL */
+
+/*! ./../helpers/cookies */
+
+/*! ./../helpers/isURLSameOrigin */
+
+/*! ./../helpers/parseHeaders */
+
+/*! ./../utils */
+
+/*! ./Cancel */
+
 /*! ./FormControlContext */
+
+/*! ./InterceptorManager */
 
 /*! ./ListContext */
 
@@ -177,6 +221,8 @@ object-assign
 /*! ./NativeSelectInput */
 
 /*! ./NotchedOutline */
+
+/*! ./ProvideAuth */
 
 /*! ./Ripple */
 
@@ -192,13 +238,29 @@ object-assign
 
 /*! ./TransitionGroupContext */
 
+/*! ./UseFetch */
+
+/*! ./adapters/xhr */
+
 /*! ./arrayLikeToArray.js */
 
 /*! ./arrayWithHoles.js */
 
 /*! ./arrayWithoutHoles.js */
 
+/*! ./auth/ProvideAuth */
+
+/*! ./auth/SignIn */
+
+/*! ./auth/SignUp */
+
 /*! ./breakpoints */
+
+/*! ./cancel/Cancel */
+
+/*! ./cancel/CancelToken */
+
+/*! ./cancel/isCancel */
 
 /*! ./capitalize */
 
@@ -224,15 +286,25 @@ object-assign
 
 /*! ./components/App */
 
-/*! ./components/hooks/CollectionProvider */
+/*! ./components/context_providers/CollectionProvider */
+
+/*! ./components/context_providers/UserProvider */
 
 /*! ./config */
 
 /*! ./content/ContentList */
 
+/*! ./context_providers/UserProvider */
+
+/*! ./core/Axios */
+
+/*! ./core/mergeConfig */
+
 /*! ./createBreakpoints */
 
 /*! ./createChainedFunction */
+
+/*! ./createError */
 
 /*! ./createMixins */
 
@@ -250,9 +322,23 @@ object-assign
 
 /*! ./defaultTheme */
 
+/*! ./defaults */
+
 /*! ./deprecatedPropType */
 
+/*! ./dispatchRequest */
+
+/*! ./enhanceError */
+
 /*! ./factoryWithTypeCheckers */
+
+/*! ./helpers/bind */
+
+/*! ./helpers/isAxiosError */
+
+/*! ./helpers/normalizeHeaderName */
+
+/*! ./helpers/spread */
 
 /*! ./indexCounter */
 
@@ -264,9 +350,13 @@ object-assign
 
 /*! ./lib/ReactPropTypesSecret */
 
+/*! ./lib/axios */
+
 /*! ./memoize */
 
 /*! ./merge */
+
+/*! ./mergeConfig */
 
 /*! ./multiKeyStore */
 
@@ -297,6 +387,8 @@ object-assign
 /*! ./shadows */
 
 /*! ./shape */
+
+/*! ./transformData */
 
 /*! ./transitions */
 
@@ -356,6 +448,8 @@ object-assign
 
 /*! @material-ui/core/AppBar */
 
+/*! @material-ui/core/Avatar */
+
 /*! @material-ui/core/Button */
 
 /*! @material-ui/core/Card */
@@ -366,9 +460,13 @@ object-assign
 
 /*! @material-ui/core/CardMedia */
 
+/*! @material-ui/core/Checkbox */
+
 /*! @material-ui/core/Container */
 
 /*! @material-ui/core/CssBaseline */
+
+/*! @material-ui/core/FormControlLabel */
 
 /*! @material-ui/core/Grid */
 
@@ -388,6 +486,8 @@ object-assign
 
 /*! @material-ui/core/TableRow */
 
+/*! @material-ui/core/TextField */
+
 /*! @material-ui/core/Toolbar */
 
 /*! @material-ui/core/Typography */
@@ -396,6 +496,8 @@ object-assign
 
 /*! @material-ui/core/utils */
 
+/*! @material-ui/icons/LockOutlined */
+
 /*! @material-ui/icons/PhotoCamera */
 
 /*! @material-ui/styles */
@@ -403,6 +505,8 @@ object-assign
 /*! @material-ui/system */
 
 /*! @material-ui/utils */
+
+/*! axios */
 
 /*! clsx */
 
@@ -477,6 +581,10 @@ object-assign
   \*******************************/
 
 /*!*************************************!*\
+  !*** ./node_modules/axios/index.js ***!
+  \*************************************/
+
+/*!*************************************!*\
   !*** ./node_modules/react/index.js ***!
   \*************************************/
 
@@ -489,12 +597,28 @@ object-assign
   \***************************************/
 
 /*!***************************************!*\
+  !*** ./src/components/auth/SignIn.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/components/auth/SignUp.js ***!
+  \***************************************/
+
+/*!***************************************!*\
   !*** ./src/components/fetch/Fetch.js ***!
   \***************************************/
 
 /*!****************************************!*\
   !*** ./node_modules/react-is/index.js ***!
   \****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/axios/lib/axios.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/axios/lib/utils.js ***!
+  \*****************************************/
 
 /*!*****************************************!*\
   !*** ./node_modules/react-dom/index.js ***!
@@ -517,7 +641,7 @@ object-assign
   \******************************************/
 
 /*!******************************************!*\
-  !*** ./src/components/hooks/UseFetch.js ***!
+  !*** ./src/components/fetch/UseFetch.js ***!
   \******************************************/
 
 /*!******************************************!*\
@@ -532,6 +656,14 @@ object-assign
   !*** ./src/components/user/UserDetail.js ***!
   \*******************************************/
 
+/*!********************************************!*\
+  !*** ./node_modules/axios/lib/defaults.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./src/components/auth/ProvideAuth.js ***!
+  \********************************************/
+
 /*!*********************************************!*\
   !*** ./node_modules/history/esm/history.js ***!
   \*********************************************/
@@ -545,12 +677,44 @@ object-assign
   \*********************************************/
 
 /*!**********************************************!*\
+  !*** ./node_modules/axios/lib/core/Axios.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
   !*** ./src/components/data_display/Table.js ***!
   \**********************************************/
 
 /*!***********************************************!*\
+  !*** ./node_modules/axios/lib/core/settle.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
   !*** ./src/components/content/ContentList.js ***!
   \***********************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/axios/lib/adapters/xhr.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/bind.js ***!
+  \************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/Cancel.js ***!
+  \*************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/spread.js ***!
+  \**************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/isCancel.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/cookies.js ***!
+  \***************************************************/
 
 /*!***************************************************!*\
   !*** ./node_modules/is-in-browser/dist/module.js ***!
@@ -561,12 +725,24 @@ object-assign
   \***************************************************/
 
 /*!****************************************************!*\
-  !*** ./node_modules/hyphenate-style-name/index.js ***!
+  !*** ./node_modules/axios/lib/core/createError.js ***!
   \****************************************************/
 
 /*!****************************************************!*\
-  !*** ./src/components/hooks/CollectionProvider.js ***!
+  !*** ./node_modules/axios/lib/core/mergeConfig.js ***!
   \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/buildURL.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/hyphenate-style-name/index.js ***!
+  \****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/axios/lib/core/enhanceError.js ***!
+  \*****************************************************/
 
 /*!*****************************************************!*\
   !*** ./node_modules/react/cjs/react.development.js ***!
@@ -576,12 +752,28 @@ object-assign
   !*** ./node_modules/value-equal/esm/value-equal.js ***!
   \*****************************************************/
 
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/core/buildFullPath.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/core/transformData.js ***!
+  \******************************************************/
+
 /*!*******************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
   \*******************************************************/
 
 /*!*******************************************************!*\
   !*** ./node_modules/@material-ui/system/esm/merge.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/combineURLs.js ***!
   \*******************************************************/
 
 /*!*******************************************************!*\
@@ -598,6 +790,18 @@ object-assign
 
 /*!********************************************************!*\
   !*** ./node_modules/@material-ui/utils/esm/refType.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/core/dispatchRequest.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isAxiosError.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/parseHeaders.js ***!
   \********************************************************/
 
 /*!********************************************************!*\
@@ -641,11 +845,19 @@ object-assign
   \*********************************************************/
 
 /*!*********************************************************!*\
+  !*** ./node_modules/@material-ui/icons/LockOutlined.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
   !*** ./node_modules/@material-ui/system/esm/memoize.js ***!
   \*********************************************************/
 
 /*!*********************************************************!*\
   !*** ./node_modules/@material-ui/system/esm/spacing.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
   \*********************************************************/
 
 /*!**********************************************************!*\
@@ -658,6 +870,10 @@ object-assign
 
 /*!**********************************************************!*\
   !*** ./node_modules/@material-ui/utils/esm/exactProp.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./src/components/context_providers/UserProvider.js ***!
   \**********************************************************/
 
 /*!***********************************************************!*\
@@ -694,6 +910,14 @@ object-assign
 
 /*!***********************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/utils/index.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/axios/lib/core/InterceptorManager.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
   \***********************************************************/
 
 /*!***********************************************************!*\
@@ -817,6 +1041,10 @@ object-assign
   \***************************************************************/
 
 /*!***************************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
 
@@ -860,8 +1088,16 @@ object-assign
   !*** ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js ***!
   \****************************************************************/
 
+/*!****************************************************************!*\
+  !*** ./src/components/context_providers/CollectionProvider.js ***!
+  \****************************************************************/
+
 /*!*****************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/ButtonBase/Ripple.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Checkbox/Checkbox.js ***!
   \*****************************************************************/
 
 /*!*****************************************************************!*\
@@ -981,6 +1217,10 @@ object-assign
   \*******************************************************************/
 
 /*!*******************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/SwitchBase.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/createMixins.js ***!
   \*******************************************************************/
 
@@ -1050,6 +1290,10 @@ object-assign
 
 /*!*********************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/ButtonBase/ButtonBase.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/IconButton/IconButton.js ***!
   \*********************************************************************/
 
 /*!*********************************************************************!*\
@@ -1225,6 +1469,10 @@ object-assign
   \***************************************************************************/
 
 /*!***************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBox.js ***!
+  \***************************************************************************/
+
+/*!***************************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/utils/createChainedFunction.js ***!
   \***************************************************************************/
 
@@ -1301,6 +1549,10 @@ object-assign
   \*********************************************************************************/
 
 /*!*********************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/FormControlLabel/FormControlLabel.js ***!
+  \*********************************************************************************/
+
+/*!*********************************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/TextareaAutosize/TextareaAutosize.js ***!
   \*********************************************************************************/
 
@@ -1327,6 +1579,14 @@ object-assign
 /*!*************************************************************************************!*\
   !*** ./node_modules/react-router/node_modules/react-is/cjs/react-is.development.js ***!
   \*************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBoxOutlineBlank.js ***!
+  \***************************************************************************************/
+
+/*!****************************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/IndeterminateCheckBox.js ***!
+  \****************************************************************************************/
 
 /*!****************************************************************************************!*\
   !*** ./node_modules/jss-plugin-vendor-prefixer/dist/jss-plugin-vendor-prefixer.esm.js ***!
