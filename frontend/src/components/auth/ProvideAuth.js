@@ -18,7 +18,7 @@ export default function ProvideAuth({ children }) {
   }
 
 function useProvideAuth() {
-    const {user, setUser} = useUser()
+    const {user, setUser} = useUser();
     const csrftoken = Cookies.get('csrftoken');
 
     const signin = (user, cb) => {
@@ -27,16 +27,24 @@ function useProvideAuth() {
     };
 
     const signout = cb => {
+      console.log("In signout " + JSON.stringify(user))
       const config = {
         headers: {
+          'url': 'auth/logout/',
+          'method': 'post',
           'Content-Type': 'application/json',
           'X-CSRFToken': csrftoken,
-        }
+          'Authorization': "",
+        },
+        data: JSON.stringify({
+          refresh: user.tokens.refresh,
+        }),
       }
-      axios.post('auth/logout/', {}, config)
+      axios.request(config)
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
       setUser({});
+      localStorage.removeItem("user");
       cb();
     };
 

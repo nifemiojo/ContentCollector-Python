@@ -89,14 +89,14 @@ export default function CollectionsCards({data, key}) {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                  {match.path == "/collections"
+                  {match.path == "/collections/"
                     ? <Button size="small" color="primary" onClick={() => setClickedCollection(data)} component={Link} to={`${match.path}/${data.id}`}>
                         Edit
                     </Button>
                     :<Button size="small" color="primary" onClick={() => setClickedCollection(data)} component={Link} to={`${match.url}/${data.id}`}>
                        View
                     </Button>}
-                    {match.path == "/collections" &&
+                    {match.path == "/collections/" &&
                     <Button size="small" color="secondary" onClick={handleDel}>
                         Delete
                     </Button>}

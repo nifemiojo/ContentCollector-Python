@@ -1,4 +1,8 @@
-function PrivateRoute({ children, ...rest }) {
+import React from "react";
+import { Redirect, Route } from "react-router";
+import { useAuth } from "./ProvideAuth";
+
+export default function PrivateRoute({ children, ...rest }) {
     let auth = useAuth();
     return (
       <Route

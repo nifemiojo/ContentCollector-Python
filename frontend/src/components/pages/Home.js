@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -11,7 +11,6 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import CollectionsCards from '../collections/CollectionsCards';
 import Fetch from '../fetch/Fetch';
-import axios from 'axios';
 import { useAuth } from '../auth/ProvideAuth';
 import { Redirect } from 'react-router';
 
@@ -67,6 +66,14 @@ function DisplayCards({data}) {
 export default function Home() {
   const classes = useStyles();
   let auth = useAuth();
+  const [startFetch, toggleFetch] = useState(false)
+
+  useEffect(() => {
+    toggleFetch(true)
+    return () => {
+      toggleFetch(false)
+    }
+  }, [])
 
   const logout = () => {
       auth.signout(() => {});
@@ -102,7 +109,7 @@ export default function Home() {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button href="/collections/new" component={Link} variant="contained" color="primary">
+                  <Button href="/collections/new/" variant="contained" color="primary">
                     + New Collection
                   </Button>
                 </Grid>
@@ -117,7 +124,7 @@ export default function Home() {
         </div>
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
-              <Fetch config={config} renderSuccess={DisplayCards} />
+              {startFetch && <Fetch config={config} renderSuccess={DisplayCards}/>}
           </Container>
       </main>
       {/* Footer */}

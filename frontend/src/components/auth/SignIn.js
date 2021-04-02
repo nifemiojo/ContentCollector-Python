@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
     const [emailProps, resetEmail] = useInput("");
     const [passwordProps, resetPassword] = useInput("");
+    const [error, toggleError] = useState(false)
     const csrftoken = Cookies.get('csrftoken');
     const classes = useStyles();
     let history = useHistory();
@@ -49,14 +50,12 @@ export default function SignIn() {
     let auth = useAuth();
 
     if (Object.keys(auth.user).length > 0) {
-        return <Redirect to="/collections/"/>
+        return <Redirect to="/"/>
     }
 
     const { from } = location.state || { from: { pathname: "/" } };
     const login = (user) => {
-        auth.signin(user, () => {
-            //history.replace(from);
-        });
+        auth.signin(user, () => {});
     };
 
     const config = {
@@ -69,6 +68,7 @@ export default function SignIn() {
         data: JSON.stringify({
             email: emailProps.value,
             password: passwordProps.value,
+            authorization: "",
         }),
     };
     
@@ -76,13 +76,23 @@ export default function SignIn() {
         e.preventDefault();
         axios.request(config)
             .then((res) => login(res.data))
-            .catch((err) => console.log(err));
+            .catch((err) => toggleError(true));
         resetEmail();
         resetPassword();
-        console.log("We got to redirect");
+        toggleError(false);
+    }
+
+    function ErrorMessage() {
+        return (
+            <Typography>
+                Invalid Login Credentials
+            </Typography>
+        )
     }
 
     return (
+    <>
+    {/* <Reroute /> */}
     <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
@@ -93,6 +103,7 @@ export default function SignIn() {
             Sign in
         </Typography>
         <div className={classes.form}>
+            {error && <ErrorMessage />}
             <TextField
             {...emailProps}
             variant="outlined"
@@ -145,5 +156,6 @@ export default function SignIn() {
         </div>
         </div>
     </Container>
+    </>
     );
 }
