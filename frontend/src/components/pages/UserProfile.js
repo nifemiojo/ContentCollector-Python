@@ -18,13 +18,18 @@ function DisplayCards({data}) {
 export default function UserProfile() {
     const { username } = useParams();
 
+    const config = {
+      url: `api/collections/public/${username}/`,
+      method: 'get',
+    }
+
     return (
         <>
             <Container>
                 <UserDetail user={username}/>
             </Container>
             <Container>
-                    <Fetch uri="api/collections/" renderSuccess={DisplayCards} />
+                    <Fetch config={config} renderSuccess={DisplayCards} />
             </Container>
         </>
     );

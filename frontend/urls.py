@@ -14,5 +14,6 @@ urlpatterns = [
     path('collections/', TemplateView.as_view(template_name='index.html')),
     path('collections/new/', TemplateView.as_view(template_name='index.html')),
     path('collections/<int:collectionId>/', TemplateView.as_view(template_name='index.html')),
+    path('collections/<int:collectionId>/<int:contentId>/', TemplateView.as_view(template_name='index.html')),
     path('new/', TemplateView.as_view(template_name='index.html'))
 ]

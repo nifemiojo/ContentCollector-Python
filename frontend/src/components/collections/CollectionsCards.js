@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -10,8 +10,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link, useRouteMatch } from "react-router-dom";
 import { useCollections } from '../context_providers/CollectionProvider';
 import Cookies from 'js-cookie';
-
-
+import Fetch from '../fetch/Fetch';
+import { useDeletedCollections } from '../context_providers/DeletedCollectionProvider';
 
 const useStyles = makeStyles((theme) => ({
     icon: {
@@ -46,38 +46,40 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function CollectionsCards({data, key}) {
+    console.log(data);
     const classes = useStyles();
     const match = useRouteMatch();
-    console.log(match);
-    const { setClickedCollection } = useCollections();
     const csrftoken = Cookies.get('csrftoken');
+    const { clickedCollection, setClickedCollection } = useCollections();
+    const [startFetch, toggleFetch] = useState(false);
 
-
-    const requestOptions = {
-        method: 'DELETE',
+    const config = {
+        url: `/api/collections/${data.id}/delete/`,
+        method: 'delete',
         headers: { 
             'Content-Type': 'application/json',
             'X-CSRFToken': csrftoken,
         },
-        mode: 'same-origin',
     };
 
-    const handleDel = (e) => {
-        console.log("Deleting...");
-        fetch(`/api/collections/${data.id}/delete/`, requestOptions)
-            .then((data) => console.log(data))
-            .catch((err) => console.error(err));
-        
-            // TODO : When a collection is successully deleted, remove and update state
+    function handleDel (e) {
+	    	e.preventDefault();
+        console.log("Clicked delete")
+        toggleFetch(true);
     }
 
+    function onDelSuccess({res}) {
+      console.log("Delete was successful pushing state up!")
+      return <Typography>Deleted</Typography>
+    }
+    
     return(
         <>
         <Grid item key={key} xs={12} sm={6} md={4}>
             <Card className={classes.card}>
                 <CardMedia
                 className={classes.cardMedia}
-                image="https://source.unsplash.com/random"
+                image="../../../static/images/collections-image.jpg"
                 title="Image title"
                 />
                 <CardContent className={classes.cardContent}>
@@ -90,16 +92,25 @@ export default function CollectionsCards({data, key}) {
                 </CardContent>
                 <CardActions>
                   {match.path == "/collections/"
-                    ? <Button size="small" color="primary" onClick={() => setClickedCollection(data)} component={Link} to={`${match.path}/${data.id}`}>
+                    ? <Button size="small" color="primary" onClick={() => setClickedCollection(data)} component={Link} to={`${match.path}${data.id}`}>
                         Edit
                     </Button>
-                    :<Button size="small" color="primary" onClick={() => setClickedCollection(data)} component={Link} to={`${match.url}/${data.id}`}>
+                    :<Button size="small" color="primary" onClick={() => setClickedCollection(data)} component={Link} to={`${match.url}${data.id}`}>
                        View
                     </Button>}
                     {match.path == "/collections/" &&
-                    <Button size="small" color="secondary" onClick={handleDel}>
-                        Delete
-                    </Button>}
+                    (
+                    <>
+                      <Button size="small" color="secondary" onClick={handleDel}>
+                          Delete
+                      </Button>
+                      {startFetch && 
+                      <Fetch 
+                      config={config} 
+                      renderSuccess={onDelSuccess}
+                      />}
+                    </>
+                    )}
                 </CardActions>
             </Card>
         </Grid>

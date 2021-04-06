@@ -8,32 +8,40 @@ import { useInput } from '../hooks/UseInput';
 import Cookies from 'js-cookie';
 import Fetch from '../fetch/Fetch';
 
-export default function CollectionDetail({data}) {
+export default function NewContent() {
     const csrftoken = Cookies.get('csrftoken');
 
     const { clickedCollection } = useCollections();
-    const [nameProps, resetName] = useInput(data.name);
-    const [descriptionProps, resetDescription] = useInput(data.description);
-    const [privacyLevelProps, resetPrivacyLevel] = useInput(data.privacyLevel);
+    const [titleProps, resetTitle] = useInput();
+    const [descriptionProps, resetDescription] = useInput();
+    const [linkProps, resetLink] = useInput();
     const [startFetch, toggleFetch] = useState(false);
     const { collectionId } = useParams();
 
 
     const config = {
-        url: `api/collections/${collectionId}/save/`,
-        method: 'put',
+        url: `/api/collections/${collectionId}/content/create/`,
+        method: 'post',
         headers: { 
             'Content-Type': 'application/json',
             'X-CSRFToken': csrftoken,
         },
         data: JSON.stringify({
-            name: nameProps.value,
+            title: titleProps.value,
             description: descriptionProps.value,
-            privacyLevel: privacyLevelProps.value
-        }),
+            link: linkProps.value
+        })
     };
 
-    const submit = e => {
+    useEffect(() => {
+        return () => {
+            resetTitle()
+            resetDescription()
+            resetLink()
+        }
+      }, [])
+
+    function submit(e) {
 		e.preventDefault();
         toggleFetch(true);
 	}
@@ -43,8 +51,8 @@ export default function CollectionDetail({data}) {
             <Grid container spacing={1}>
                 <Grid item xs={4} align="center">
                     <TextField 
-                            {...nameProps} required={true} type="text" 
-                        label="Name of Collection" placeholder="Name"
+                            {...titleProps} required={true} type="text" 
+                        label="Content Title" placeholder="Title"
                     />
                 </Grid>
             <Grid item xs={4} align="center">
@@ -54,20 +62,13 @@ export default function CollectionDetail({data}) {
                 />
             </Grid>
             <Grid item xs={4} align="center">
-                <FormControl required={true}>
-                    <InputLabel id="privacy-label">Privacy Level</InputLabel>
-                    <Select
-                        {...privacyLevelProps}
-                        labelId="privacy-label"
-                    >
-                        <MenuItem value="Public">Public</MenuItem>
-                        <MenuItem value="Private">Private</MenuItem>
-                        <MenuItem value="Personal">Personal</MenuItem>
-                    </Select>
-                </FormControl>
+                <TextField 
+                    {...linkProps} type="text" label="Link" 
+                    placeholder="Link"
+                />
             </Grid>
-            <Grid item xs={12} align="center" >
-                <Button color="primary" variant="contained" onClick={submit}>
+            <Grid item xs={12} align="center" onClick={submit}>
+                <Button color="primary" variant="contained">
                     Save
                 </Button>
                 {startFetch && <Fetch config={config} renderSuccess={() => <Typography>Successfully Created!</Typography>}/>}

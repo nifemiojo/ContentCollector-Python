@@ -11,7 +11,6 @@ import CreateCollection from "./collections/CreateCollection";
 import Home from "./pages/Home";
 import CollectionDetail from "./collections/CollectionDetail";
 import UserProfile from "./pages/UserProfile";
-import ContentList from "./content/ContentList"
 import SignIn from "./auth/SignIn";
 import SignUp from "./auth/SignUp";
 import { Button, Grid } from "@material-ui/core";
@@ -19,6 +18,8 @@ import axios from "axios";
 import { useUser } from "./context_providers/UserProvider";
 import ProvideAuth, { useAuth } from "./auth/ProvideAuth";
 import PrivateRoute from "./auth/PrivateRoute";
+import CollectionDetailPage from "./pages/CollectionDetailPage";
+import EditContent from "./pages/EditContent";
 
 export default function App() {
   const {user, setUser} = useUser();
@@ -78,7 +79,7 @@ export default function App() {
   return (
     <ProvideAuth>
       <div>
-        <LoggedIn />
+        {/* <LoggedIn /> */}
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
@@ -91,9 +92,14 @@ export default function App() {
           <PrivateRoute exact path="/collections/new/" >
             <CreateCollection />
           </PrivateRoute>
-          <Route exact path="/collections/:collectionId/" component={CollectionDetail} />
+          <PrivateRoute exact path="/collections/:collectionId/" >
+            <CollectionDetailPage />
+          </PrivateRoute>
+          <PrivateRoute exact path="/collections/:collectionId/:contentId/" >
+            <EditContent />
+          </PrivateRoute>
           <Route exact path="/:username/" component={UserProfile} />
-          <Route exact path="/:username/:collectionId/" component={ContentList} />
+          {/* <Route exact path="/:username/:collectionId/" component={ContentList} /> */}
         </Switch>
       </div>
     </ProvideAuth>

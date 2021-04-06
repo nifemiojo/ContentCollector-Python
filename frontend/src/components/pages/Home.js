@@ -13,6 +13,8 @@ import CollectionsCards from '../collections/CollectionsCards';
 import Fetch from '../fetch/Fetch';
 import { useAuth } from '../auth/ProvideAuth';
 import { Redirect } from 'react-router';
+import { useDeletedCollections } from '../context_providers/DeletedCollectionProvider';
+import DisplayCollections from '../collections/DisplayCollections';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -46,27 +48,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function DisplayCards({data}) { 
-  if (Object.keys(data).length === 0) {
-    return (
-      <Typography component="h1" variant="h2" align="center" color="textPrimary">
-        Create a new collection!
-      </Typography>
-    );
-  }
-  return (
-    <>
-    <Grid container spacing={4}>
-      {data.map((data, i) => <CollectionsCards data={data} key={i}/>)}
-    </Grid>
-    </>
-  );
-}
-
 export default function Home() {
   const classes = useStyles();
   let auth = useAuth();
-  const [startFetch, toggleFetch] = useState(false)
+  const [startFetch, toggleFetch] = useState(false);
 
   useEffect(() => {
     toggleFetch(true)
@@ -124,7 +109,7 @@ export default function Home() {
         </div>
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
-              {startFetch && <Fetch config={config} renderSuccess={DisplayCards}/>}
+              {startFetch && <Fetch config={config} renderSuccess={DisplayCollections}/>}
           </Container>
       </main>
       {/* Footer */}

@@ -5,12 +5,15 @@ import App from './components/App';
 import CollectionProvider from './components/context_providers/CollectionProvider';
 import axios from 'axios';
 import UserProvider from './components/context_providers/UserProvider';
+import DeletedCollectionProvider from './components/context_providers/DeletedCollectionProvider';
 
 render(
     <Router>
         <UserProvider>
             <CollectionProvider>
-                <App />
+                <DeletedCollectionProvider>         
+                    <App />
+                </DeletedCollectionProvider>
             </CollectionProvider>
         </UserProvider>
     </Router>

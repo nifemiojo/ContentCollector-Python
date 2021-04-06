@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Grid, Typography, 
     TextField, FormHelperText, FormControl, 
     InputLabel, Select, MenuItem } from "@material-ui/core";
 import Cookies from 'js-cookie';
-
 import { useInput } from '../hooks/UseInput';
+import axios from 'axios';
+import Fetch from '../fetch/Fetch';
 
 export default function CreateCollection () {
     // Get the CSRF Token
@@ -14,32 +15,36 @@ export default function CreateCollection () {
     const [nameProps, resetName] = useInput("");
     const [descriptionProps, resetDescription] = useInput("");
     const [privacyLevelProps, resetPrivacyLevel] = useInput("");
+    const [startFetch, toggleFetch] = useState(false);
 
-    const requestOptions = {
-        method: 'POST',
+    const config = {
+        url: '/api/collections/create/',
+        method: 'post',
         headers: { 
             'Content-Type': 'application/json',
             'X-CSRFToken': csrftoken,
         },
-        body: JSON.stringify({
+        data: JSON.stringify({
             name: nameProps.value,
             description: descriptionProps.value,
             privacyLevel: privacyLevelProps.value
-        }),
-        mode: 'same-origin',
+        })
     };
 
-    const submit = e => {
+    useEffect(() => {
+        return () => {
+            resetName()
+            resetDescription()
+            resetPrivacyLevel()
+        }
+      }, [])
+
+    function submit(e) {
 		e.preventDefault();
-        fetch('/api/collections/create/', requestOptions)
-            .then((res) => res.json())
-            .then((data) => console.log(data));
-        resetName();
-        resetDescription();
-        resetPrivacyLevel();
+        toggleFetch(true);
 	}
 
-    return(
+    return (
         <Grid container spacing={1}>
             <Grid item xs={12} align="center">
                 <Typography component='h4' variant='h4'>
@@ -81,9 +86,10 @@ export default function CreateCollection () {
                 </FormControl>
             </Grid>
             <Grid item xs={12} align="center">
-                <Button color="primary" variant="contained" onClick={() => submit()}>
+                <Button color="primary" variant="contained" onClick={submit}>
                     Create
                 </Button>
+                {startFetch && <Fetch config={config} renderSuccess={() => <Typography>Successfully Created!</Typography>}/>}
             </Grid>
         </Grid>
     );

@@ -88,7 +88,11 @@ object-assign
 
 /*! ../cancel/isCancel */
 
+/*! ../collections/CollectionDetail */
+
 /*! ../collections/CollectionsCards */
+
+/*! ../collections/DisplayCollections */
 
 /*! ../colors/blue */
 
@@ -106,7 +110,13 @@ object-assign
 
 /*! ../colors/red */
 
+/*! ../content/ContentDetail */
+
+/*! ../content/NewContent */
+
 /*! ../context_providers/CollectionProvider */
+
+/*! ../context_providers/DeletedCollectionProvider */
 
 /*! ../context_providers/UserProvider */
 
@@ -116,7 +126,7 @@ object-assign
 
 /*! ../createGenerateClassName */
 
-/*! ../data_display/Table */
+/*! ../data_display/ContentTable */
 
 /*! ../defaults */
 
@@ -210,6 +220,8 @@ object-assign
 
 /*! ./Cancel */
 
+/*! ./CollectionsCards */
+
 /*! ./FormControlContext */
 
 /*! ./InterceptorManager */
@@ -290,11 +302,11 @@ object-assign
 
 /*! ./components/context_providers/CollectionProvider */
 
+/*! ./components/context_providers/DeletedCollectionProvider */
+
 /*! ./components/context_providers/UserProvider */
 
 /*! ./config */
-
-/*! ./content/ContentList */
 
 /*! ./context_providers/UserProvider */
 
@@ -373,6 +385,10 @@ object-assign
 /*! ./ownerDocument */
 
 /*! ./ownerWindow */
+
+/*! ./pages/CollectionDetailPage */
+
+/*! ./pages/EditContent */
 
 /*! ./pages/Home */
 
@@ -679,6 +695,10 @@ object-assign
   \*********************************************/
 
 /*!*********************************************!*\
+  !*** ./src/components/pages/EditContent.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
   !*** ./src/components/pages/UserProfile.js ***!
   \*********************************************/
 
@@ -687,15 +707,11 @@ object-assign
   \**********************************************/
 
 /*!**********************************************!*\
-  !*** ./src/components/data_display/Table.js ***!
+  !*** ./src/components/content/NewContent.js ***!
   \**********************************************/
 
 /*!***********************************************!*\
   !*** ./node_modules/axios/lib/core/settle.js ***!
-  \***********************************************/
-
-/*!***********************************************!*\
-  !*** ./src/components/content/ContentList.js ***!
   \***********************************************/
 
 /*!************************************************!*\
@@ -708,6 +724,10 @@ object-assign
 
 /*!*************************************************!*\
   !*** ./node_modules/axios/lib/cancel/Cancel.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./src/components/content/ContentDetail.js ***!
   \*************************************************/
 
 /*!**************************************************!*\
@@ -758,6 +778,10 @@ object-assign
   !*** ./node_modules/value-equal/esm/value-equal.js ***!
   \*****************************************************/
 
+/*!*****************************************************!*\
+  !*** ./src/components/data_display/ContentTable.js ***!
+  \*****************************************************/
+
 /*!******************************************************!*\
   !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
   \******************************************************/
@@ -768,6 +792,10 @@ object-assign
 
 /*!******************************************************!*\
   !*** ./node_modules/axios/lib/core/transformData.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./src/components/pages/CollectionDetailPage.js ***!
   \******************************************************/
 
 /*!*******************************************************!*\
@@ -876,6 +904,10 @@ object-assign
 
 /*!**********************************************************!*\
   !*** ./node_modules/@material-ui/utils/esm/exactProp.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./src/components/collections/DisplayCollections.js ***!
   \**********************************************************/
 
 /*!**********************************************************!*\
@@ -1420,6 +1452,10 @@ object-assign
 
 /*!***********************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/utils/ChildMapping.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./src/components/context_providers/DeletedCollectionProvider.js ***!
   \***********************************************************************/
 
 /*!************************************************************************!*\

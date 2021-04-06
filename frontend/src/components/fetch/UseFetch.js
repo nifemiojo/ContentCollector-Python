@@ -33,7 +33,6 @@ export function useFetch(config) {
 				localState.tokens.access = res.data.access
 				localStorage.setItem('user', JSON.stringify(localState))
 				setLocalState(localState)
-				console.log(loading)
 				setError(null)
 			})
 			.catch((err) => {
@@ -57,16 +56,22 @@ export function useFetch(config) {
 		axios.request(config)
 			.then((res) => {
 				console.log(res)
-				setData(res.data)
+				if (res.status === 204) {
+					setData("deleted")
+				} else setData(res.data)
 			})
 			.then(() => {
 				setLoading(false)
 			})
 			.catch((err) => {
-				if (err.response.data.code === "token_not_valid"){
+				if (err.response && err.response.data.code === "token_not_valid"){
 					console.log("token not valid error")
 					refreshToken()
 				} else {
+					console.log(err)
+					/* console.log(err.response)
+					console.log(err.response.data)
+					console.log(err.request) */
 					setError(err)
 					setLoading(false)
 				}
