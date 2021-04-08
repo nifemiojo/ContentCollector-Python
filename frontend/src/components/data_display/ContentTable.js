@@ -7,11 +7,11 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { Button, TextField, Typography } from '@material-ui/core';
-import { useParams, useRouteMatch } from 'react-router';
+import { Button, TextField, Typography, Link } from '@material-ui/core';
+import { useLocation, useParams, useRouteMatch } from 'react-router';
+import { Link as RouterLink } from "react-router-dom";
 import Cookies from 'js-cookie';
 import Fetch from '../fetch/Fetch';
-import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   table: {
@@ -24,6 +24,12 @@ export default function ContentTable({rows}) {
   const csrftoken = Cookies.get('csrftoken');
   const [startFetch, toggleFetch] = useState(false);
   const [contentId, setContentId] = useState("");
+  const location = useLocation();
+  const match = useRouteMatch();
+
+  console.log(location);
+  console.log(match);
+
   const { collectionId } = useParams();
 
   useEffect(() => {
@@ -61,28 +67,34 @@ export default function ContentTable({rows}) {
           <TableRow>
             <TableCell>Content Name</TableCell>
             <TableCell>Description</TableCell>
-            <TableCell>Link</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.title}>
               <TableCell component="th" scope="row">
-                {row.title}
+                <Link component={Button} href={row.link} target="_blank" underline="hover">
+                  {row.title}
+                </Link>
               </TableCell>
-              <TableCell align="right">{row.description}</TableCell>
-              <TableCell align="right">{row.link}</TableCell>
-              <TableCell align="right">
-                <Button component={Link} to={`${collectionId}/${row.id}`}>
-                  Edit
-                </Button>
-              </TableCell>
-              <TableCell align="right">
-                <Button onClick={(e) => handleDel(e, row.id)}>
-                  Delete
-                </Button>
-                {startFetch && <Fetch config={config} renderSuccess={onDelSuccess} />}
-              </TableCell>
+              <TableCell>{row.description}</TableCell>
+              {location.pathname.search("collections") !== -1 ? 
+             (
+             <>
+              <TableCell>
+                  <Button component={RouterLink} to={`${row.id}`}>
+                    Edit
+                  </Button>
+                </TableCell>
+                <TableCell>
+                  <Button onClick={(e) => handleDel(e, row.id)}>
+                    Delete
+                  </Button>
+                  {startFetch && <Fetch config={config} renderSuccess={onDelSuccess} />}
+                </TableCell>
+              </>
+              ) 
+              : null}
             </TableRow>
           ))}
         </TableBody>

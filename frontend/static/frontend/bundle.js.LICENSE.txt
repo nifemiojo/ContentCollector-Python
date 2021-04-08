@@ -12,6 +12,12 @@ object-assign
  * Released under the MIT license
  */
 
+/*! !!../node_modules/css-loader/dist/cjs.js!./general.css */
+
+/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
+
+/*! ../../general.css */
+
 /*! ../../utils/createSvgIcon */
 
 /*! ../ButtonBase */
@@ -132,6 +138,8 @@ object-assign
 
 /*! ../fetch/Fetch */
 
+/*! ../general.css */
+
 /*! ../getStylesCreator */
 
 /*! ../getStylesCreator/noopTheme */
@@ -164,6 +172,10 @@ object-assign
 
 /*! ../mergeClasses */
 
+/*! ../node_modules/css-loader/dist/runtime/api.js */
+
+/*! ../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */
+
 /*! ../styles/colorManipulator */
 
 /*! ../styles/useTheme */
@@ -175,6 +187,8 @@ object-assign
 /*! ../transitions/utils */
 
 /*! ../useTheme */
+
+/*! ../useTheme/ThemeContext */
 
 /*! ../user/UserDetail */
 
@@ -292,9 +306,9 @@ object-assign
 
 /*! ./cjs/scheduler.development.js */
 
-/*! ./collections/CollectionDetail */
-
 /*! ./collections/CreateCollection */
+
+/*! ./collections/PublicCollectionList */
 
 /*! ./colorManipulator */
 
@@ -362,6 +376,10 @@ object-assign
 
 /*! ./iterableToArrayLimit.js */
 
+/*! ./layout/Footer */
+
+/*! ./layout/NavigationBar */
+
 /*! ./lib/ReactPropTypesSecret */
 
 /*! ./lib/axios */
@@ -373,6 +391,8 @@ object-assign
 /*! ./mergeConfig */
 
 /*! ./multiKeyStore */
+
+/*! ./nested */
 
 /*! ./nonIterableRest.js */
 
@@ -391,6 +411,8 @@ object-assign
 /*! ./pages/EditContent */
 
 /*! ./pages/Home */
+
+/*! ./pages/LandingPage */
 
 /*! ./pages/UserProfile */
 
@@ -464,8 +486,6 @@ object-assign
 
 /*! @material-ui/core */
 
-/*! @material-ui/core/AppBar */
-
 /*! @material-ui/core/Avatar */
 
 /*! @material-ui/core/Button */
@@ -506,17 +526,15 @@ object-assign
 
 /*! @material-ui/core/TextField */
 
-/*! @material-ui/core/Toolbar */
-
 /*! @material-ui/core/Typography */
 
 /*! @material-ui/core/styles */
 
 /*! @material-ui/core/utils */
 
-/*! @material-ui/icons/LockOutlined */
+/*! @material-ui/icons/Bookmarks */
 
-/*! @material-ui/icons/PhotoCamera */
+/*! @material-ui/icons/LockOutlined */
 
 /*! @material-ui/styles */
 
@@ -594,6 +612,10 @@ object-assign
   !*** ./src/index.js ***!
   \**********************/
 
+/*!*************************!*\
+  !*** ./src/general.css ***!
+  \*************************/
+
 /*!*******************************!*\
   !*** ./src/components/App.js ***!
   \*******************************/
@@ -644,6 +666,10 @@ object-assign
 
 /*!*****************************************!*\
   !*** ./node_modules/scheduler/index.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./src/components/layout/Footer.js ***!
   \*****************************************/
 
 /*!******************************************!*\
@@ -699,6 +725,10 @@ object-assign
   \*********************************************/
 
 /*!*********************************************!*\
+  !*** ./src/components/pages/LandingPage.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
   !*** ./src/components/pages/UserProfile.js ***!
   \*********************************************/
 
@@ -720,6 +750,10 @@ object-assign
 
 /*!************************************************!*\
   !*** ./node_modules/axios/lib/helpers/bind.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./src/components/layout/NavigationBar.js ***!
   \************************************************/
 
 /*!*************************************************!*\
@@ -771,6 +805,10 @@ object-assign
   \*****************************************************/
 
 /*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
   !*** ./node_modules/react/cjs/react.development.js ***!
   \*****************************************************/
 
@@ -781,6 +819,10 @@ object-assign
 /*!*****************************************************!*\
   !*** ./src/components/data_display/ContentTable.js ***!
   \*****************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Bookmarks.js ***!
+  \******************************************************/
 
 /*!******************************************************!*\
   !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
@@ -816,10 +858,6 @@ object-assign
 
 /*!********************************************************!*\
   !*** ../../../node_modules/js-cookie/src/js.cookie.js ***!
-  \********************************************************/
-
-/*!********************************************************!*\
-  !*** ./node_modules/@material-ui/icons/PhotoCamera.js ***!
   \********************************************************/
 
 /*!********************************************************!*\
@@ -990,6 +1028,10 @@ object-assign
   !*** ./node_modules/tiny-warning/dist/tiny-warning.esm.js ***!
   \************************************************************/
 
+/*!************************************************************!*\
+  !*** ./src/components/collections/PublicCollectionList.js ***!
+  \************************************************************/
+
 /*!*************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/AppBar/AppBar.js ***!
   \*************************************************************/
@@ -1080,6 +1122,10 @@ object-assign
 
 /*!***************************************************************!*\
   !*** ./node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/general.css ***!
   \***************************************************************/
 
 /*!***************************************************************!*\
@@ -1475,6 +1521,10 @@ object-assign
   \************************************************************************/
 
 /*!************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/cssWithMappingToString.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
   !*** ./node_modules/react-router/node_modules/path-to-regexp/index.js ***!
   \************************************************************************/
 
@@ -1515,6 +1565,10 @@ object-assign
   \***************************************************************************/
 
 /*!***************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/useMediaQuery/useMediaQuery.js ***!
+  \***************************************************************************/
+
+/*!***************************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/utils/createChainedFunction.js ***!
   \***************************************************************************/
 
@@ -1542,12 +1596,20 @@ object-assign
   !*** ./node_modules/@material-ui/styles/esm/getStylesCreator/noopTheme.js ***!
   \****************************************************************************/
 
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+
 /*!*****************************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/FormHelperText/FormHelperText.js ***!
   \*****************************************************************************/
 
 /*!*****************************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/TableContainer/TableContainer.js ***!
+  \*****************************************************************************/
+
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js ***!
   \*****************************************************************************/
 
 /*!*****************************************************************************!*\

@@ -1,9 +1,8 @@
 from rest_framework.views import exception_handler
 
-
 def custom_exception_handler(exc, context):
 
-    handlers ={
+    handlers = {
         'ValidationError': _handle_generic_error,
         'Http404': _handle_generic_error,
         'PermissionDenied': _handle_generic_error,

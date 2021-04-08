@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { useInput } from '../hooks/UseInput';
+import Cookies from 'js-cookie';
+import axios from 'axios';
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -35,6 +39,53 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const [usernameProps, resetUsername] = useInput("");
+  const [emailProps, resetEmail] = useInput("");
+  const [passwordProps, resetPassword] = useInput("");
+  const [error, toggleError] = useState(false)
+  const [success, toggleSuccess] = useState(false)
+  const csrftoken = Cookies.get('csrftoken');
+
+  const config = {
+      url: '/auth/register/',
+      method: 'post',
+      headers: { 
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken,
+      },
+      data: JSON.stringify({
+        username: usernameProps.value,
+        email: emailProps.value,
+        password: passwordProps.value,
+        authorization: "",
+      }),
+  };
+
+  const submit = e => {
+      e.preventDefault();
+      axios.request(config)
+          .then((data) => toggleSuccess(true))
+          .catch((err) => toggleError(true));
+      resetEmail();
+      resetPassword();
+      toggleError(false);
+  }
+
+  function ErrorMessage() {
+      return (
+          <Typography>
+              Invalid Registration Credentials
+          </Typography>
+      )
+  }
+  
+  function SuccessMessage() {
+      return (
+          <Typography>
+              Successful registration. Check your email for the verification link.
+          </Typography>
+      )
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -46,33 +97,25 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        {error && <ErrorMessage />}
+        {success && <SuccessMessage />}
+        <div className={classes.form}>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
-                autoComplete="fname"
-                name="firstName"
+              {...usernameProps}
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="uname"
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                {...emailProps}
                 variant="outlined"
                 required
                 fullWidth
@@ -84,6 +127,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                {...passwordProps}
                 variant="outlined"
                 required
                 fullWidth
@@ -101,6 +145,7 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={submit}
           >
             Sign Up
           </Button>
@@ -111,7 +156,7 @@ export default function SignUp() {
               </Link>
             </Grid>
           </Grid>
-        </form>
+        </div>
       </div>
     </Container>
   );

@@ -8,7 +8,7 @@ export default function PrivateRoute({ children, ...rest }) {
       <Route
         {...rest}
         render={({ location }) =>
-          auth.user ? (
+        Object.keys(auth.user).length !== 0 ? (
             children
           ) : (
             <Redirect

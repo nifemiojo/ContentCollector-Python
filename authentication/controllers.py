@@ -77,7 +77,7 @@ class VerifyEmail(views.APIView):
                 user.is_verified = True
                 user.save()
 
-            data = {'email': 'Successfully activated'}
+            data = {'email': 'Successfully activated, Return to home page and login.'}
             return Response(data, status=status.HTTP_200_OK)
         except jwt.ExpiredSignatureError as identifier:
             return Response({'error': 'Activation Expired'}, status=status.HTTP_400_BAD_REQUEST)
@@ -161,7 +161,6 @@ class SetNewPasswordAPIView(generics.GenericAPIView):
 
 class Logout(generics.GenericAPIView):
     serializer_class = LogoutSerializer
-    permission_classes = (permissions.IsAuthenticated,)
 
     def post(self, request):
         serializer = self.serializer_class(data=request.data)

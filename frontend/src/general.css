@@ -1,0 +1,20 @@
+#parent-container {
+    min-height: 75vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.parent-grid {
+    min-width: 100vw;
+    margin: auto;
+}
+
+.footer {
+    background-color: #424242;
+    padding: 16px;
+    min-height: 16vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}

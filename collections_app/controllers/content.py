@@ -18,6 +18,29 @@ class ContentList(generics.ListAPIView):
             return self.queryset.filter(collection=self.kwargs["collectionId"], collection__privacyLevel="Public")
         return self.queryset.filter(collection=self.kwargs["collectionId"])
 
+class RestrictPrivateOwnerEdit(permissions.BasePermission):
+    """
+    Object-level permission to only allow owners of an object to edit it.
+    Ensures only the owner can view private items
+    """
+    message = "Access is restricted"
+
+    def has_object_permission(self, request, view, obj):
+        if obj.collection.user.id != self.request.user.id:
+            return False
+
+class ContentDetail(generics.RetrieveAPIView):
+    """
+    GET: Returns the content in a given collection
+    """
+    serializer_class = ContentSerializer
+    permissions_classes = [IsAuthenticated]
+
+    def get_object(self):
+        obj = Content.objects.get(id=self.kwargs["contentId"])
+        self.check_object_permissions(self.request, obj)
+        return obj
+
 class CreateContent(generics.CreateAPIView):
     """
     POST: Creates Content within a collection 

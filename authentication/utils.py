@@ -12,7 +12,6 @@ class EmailThread(threading.Thread):
         self.email.send()
 
 class Util:
-    @staticmethod
+    @staticmethod  
     def send_email(data):
-        email = send_mail(subject=data['email_subject'], message=data['email_body'], from_email=None, recipient_list=[data['to_email']])
-        EmailThread(email).start()
+        send_mail(subject=data['email_subject'], message=data['email_body'], from_email=None, recipient_list=[data['to_email']])

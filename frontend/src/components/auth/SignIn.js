@@ -45,15 +45,12 @@ export default function SignIn() {
     const [error, toggleError] = useState(false)
     const csrftoken = Cookies.get('csrftoken');
     const classes = useStyles();
-    let history = useHistory();
-    let location = useLocation();
     let auth = useAuth();
 
     if (Object.keys(auth.user).length > 0) {
         return <Redirect to="/"/>
     }
 
-    const { from } = location.state || { from: { pathname: "/" } };
     const login = (user) => {
         auth.signin(user, () => {});
     };

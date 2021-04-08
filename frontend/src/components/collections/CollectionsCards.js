@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link, useLocation, useRouteMatch } from "react-router-dom";
 import { useCollections } from '../context_providers/CollectionProvider';
 import Cookies from 'js-cookie';
 import Fetch from '../fetch/Fetch';
@@ -49,9 +49,12 @@ export default function CollectionsCards({data, key}) {
     console.log(data);
     const classes = useStyles();
     const match = useRouteMatch();
+    const location = useLocation();
     const csrftoken = Cookies.get('csrftoken');
     const { clickedCollection, setClickedCollection } = useCollections();
     const [startFetch, toggleFetch] = useState(false);
+    console.log(match)
+    console.log(location)
 
     const config = {
         url: `/api/collections/${data.id}/delete/`,
@@ -92,16 +95,16 @@ export default function CollectionsCards({data, key}) {
                 </CardContent>
                 <CardActions>
                   {match.path == "/collections/"
-                    ? <Button size="small" color="primary" onClick={() => setClickedCollection(data)} component={Link} to={`${match.path}${data.id}`}>
+                    ? <Button size="small" color="primary" variant="contained" onClick={() => setClickedCollection(data)} component={Link} to={`${match.path}${data.id}`}>
                         Edit
                     </Button>
-                    :<Button size="small" color="primary" onClick={() => setClickedCollection(data)} component={Link} to={`${match.url}${data.id}`}>
+                    :<Button size="small" color="primary" variant="contained" onClick={() => setClickedCollection(data)} component={Link} to={`${location.pathname}${data.id}`}>
                        View
                     </Button>}
                     {match.path == "/collections/" &&
                     (
                     <>
-                      <Button size="small" color="secondary" onClick={handleDel}>
+                      <Button size="small" color="secondary" variant="contained" onClick={handleDel}>
                           Delete
                       </Button>
                       {startFetch && 
