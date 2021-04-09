@@ -4,8 +4,6 @@ import { useDeletedCollections } from '../context_providers/DeletedCollectionPro
 import CollectionsCards from './CollectionsCards';
 
 export default function DisplayCollections({data}) {
-  console.log("Displaying Collections") 
-
   if (Object.keys(data).length === 0) {
     return (
       <Typography component="h1" variant="h2" align="center" color="textPrimary">
@@ -15,9 +13,8 @@ export default function DisplayCollections({data}) {
   }
   return (
     <>
-   {console.log("Displaying Cards")}
     <Grid container spacing={4}>
-      {data.map((data, i) => <CollectionsCards data={data} key={i}/>)}
+      {data.map((data, i) => <CollectionsCards data={data} key={data.id.toString()}/>)}
     </Grid>
     </>
   );

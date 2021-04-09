@@ -27,7 +27,6 @@ function useProvideAuth() {
     };
 
     const signout = cb => {
-      console.log("In signout " + JSON.stringify(user))
       const config = {
         headers: {
           'url': 'auth/logout/',
@@ -41,7 +40,6 @@ function useProvideAuth() {
         }),
       }
       axios.request(config)
-        .then((res) => console.log(res))
         .catch((err) => console.log(err));
       setUser({});
       localStorage.removeItem("user");

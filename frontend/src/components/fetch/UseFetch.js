@@ -28,24 +28,18 @@ export function useFetch(config) {
 		}
 		axios.request(config)
 			.then((res)=> {
-				console.log("refreshing token function...")
-				console.log("new access token: " + JSON.stringify(res.data))
 				localState.tokens.access = res.data.access
 				localStorage.setItem('user', JSON.stringify(localState))
 				setLocalState(localState)
 				setError(null)
 			})
 			.catch((err) => {
-				console.log("refresh token expired")
-				console.log(err)
 				setError("refresh_token_expired")
 				setLoading(false)
 			})
 	}
 
 	useEffect(() => {
-		console.log("Just before col data fetch")
-		console.log(getLocalState)
 		getLocalState && Object.keys(getLocalState).length !== 0
 		? axios.defaults.headers.common['Authorization'] = 'Bearer ' + getLocalState.tokens.access 
 		: localState && Object.keys(localState).length !== 0
@@ -55,7 +49,6 @@ export function useFetch(config) {
 		if (!config) return;
 		axios.request(config)
 			.then((res) => {
-				console.log(res)
 				if (res.status === 204) {
 					setData("deleted")
 				} else setData(res.data)
@@ -65,13 +58,8 @@ export function useFetch(config) {
 			})
 			.catch((err) => {
 				if (err.response && err.response.data.code === "token_not_valid"){
-					console.log("token not valid error")
 					refreshToken()
 				} else {
-					console.log(err)
-					/* console.log(err.response)
-					console.log(err.response.data)
-					console.log(err.request) */
 					setError(err)
 					setLoading(false)
 				}

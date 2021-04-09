@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function DisplayCards({data}) { 
-    const { username } = useParams();
 
     return (
     <>

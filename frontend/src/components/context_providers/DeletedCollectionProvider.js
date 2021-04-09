@@ -10,7 +10,6 @@ export default function DeletedCollectionProvider ({ children }) {
 	const setDeletedCollectionId = data => setDelCollectionId(data);
 
 	function removeDeletedCollection() {
-		console.log("Filtering the b")
 		if (getData) {
 			setData(getData.filter(collection => collection.id !== deletedCollectionId))
 			setDeletedCollectionId(false);

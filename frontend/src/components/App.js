@@ -22,7 +22,6 @@ import PrivateRoute from "./auth/PrivateRoute";
 import CollectionDetailPage from "./pages/CollectionDetailPage";
 import EditContent from "./pages/EditContent";
 import LandingPage from "./pages/LandingPage";
-import '../general.css';
 import NavigationBar from "./layout/NavigationBar";
 import Footer from "./layout/Footer";
 import PublicCollectionList from "./collections/PublicCollectionList";
@@ -68,10 +67,9 @@ export default function App() {
                 <EditContent />
               </PrivateRoute>
               <Route exact path="/:username/" component={UserProfile} />
-              <PrivateRoute exact path="/:username/:collectionId/" >
+              <Route exact path="/:username/:collectionId/" >
                 <PublicCollectionList />
-              </PrivateRoute>
-              {/* <Route exact path="/:username/:collectionId/" component={ContentList} /> */}
+              </Route>
             </Switch>
           </div>
         </ProvideAuth>

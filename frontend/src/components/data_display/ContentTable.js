@@ -27,9 +27,6 @@ export default function ContentTable({rows}) {
   const location = useLocation();
   const match = useRouteMatch();
 
-  console.log(location);
-  console.log(match);
-
   const { collectionId } = useParams();
 
   useEffect(() => {
@@ -50,7 +47,6 @@ export default function ContentTable({rows}) {
 
   function handleDel (e, id) {
       e.preventDefault();
-      console.log("Clicked delete")
       setContentId(id);
       toggleFetch(true);
   }

@@ -7,7 +7,6 @@ export default function Fetch({
 	renderSuccess,
 	loadingFallback = <p>loading...</p>,
 	renderError = error => {
-		console.log("rendering error")
 		return <Typography>Error Occured. Please try again later.</Typography>
 }	
 }) {

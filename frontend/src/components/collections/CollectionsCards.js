@@ -45,16 +45,13 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-export default function CollectionsCards({data, key}) {
-    console.log(data);
+export default function CollectionsCards({data}) {
     const classes = useStyles();
     const match = useRouteMatch();
     const location = useLocation();
     const csrftoken = Cookies.get('csrftoken');
     const { clickedCollection, setClickedCollection } = useCollections();
     const [startFetch, toggleFetch] = useState(false);
-    console.log(match)
-    console.log(location)
 
     const config = {
         url: `/api/collections/${data.id}/delete/`,
@@ -67,18 +64,16 @@ export default function CollectionsCards({data, key}) {
 
     function handleDel (e) {
 	    	e.preventDefault();
-        console.log("Clicked delete")
         toggleFetch(true);
     }
 
     function onDelSuccess({res}) {
-      console.log("Delete was successful pushing state up!")
       return <Typography>Deleted</Typography>
     }
     
     return(
         <>
-        <Grid item key={key} xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
             <Card className={classes.card}>
                 <CardMedia
                 className={classes.cardMedia}

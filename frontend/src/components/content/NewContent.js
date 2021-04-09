@@ -64,7 +64,7 @@ export default function NewContent() {
             <Grid item xs={4} align="center">
                 <TextField 
                     {...linkProps} type="text" label="Link" 
-                    placeholder="Link"
+                    placeholder="Link" required={true}
                 />
             </Grid>
             <Grid item xs={12} align="center" onClick={submit}>

@@ -3,8 +3,6 @@ import React from "react";
 import { Redirect, useLocation } from "react-router";
 import { useAuth } from "../auth/ProvideAuth";
 import { useUser } from "../context_providers/UserProvider";
-import '../../general.css';
-
 
 export default function LandingPage() {
     let auth = useAuth();
