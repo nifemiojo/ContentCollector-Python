@@ -4,12 +4,18 @@ jobs:
   build-and-test:
     docker:
       - image:  circleci/postgres:13
+        auth:
+          username: femiojo
+          password: $DOCKERHUB_PASSWORD
         environment:
           POSTGRES_DB: test_db 
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: test
           
       - image: circleci/python:3.7  # primary container for the build job
+        auth:
+            username: femiojo
+            password: $DOCKERHUB_PASSWORD
         environment:
           DJANGO_SETTINGS_MODULE: config.settings.test
           SECRET_KEY: $SECRET_KEY
