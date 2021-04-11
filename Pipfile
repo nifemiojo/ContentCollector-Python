@@ -8,13 +8,15 @@ pylint = "*"
 
 [packages]
 django = "==3.1"
-psycopg2 = "*"
 pillow = "*"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
 drf-yasg = "*"
 django-cors-headers = "*"
 faker = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"

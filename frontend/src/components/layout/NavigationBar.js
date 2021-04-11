@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Link, makeStyles, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Link, makeStyles, Toolbar } from '@material-ui/core';
 import BookmarksIcon from '@material-ui/icons/Bookmarks';
 import { Link as RouterLink } from "react-router-dom";
 

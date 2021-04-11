@@ -1,4 +1,4 @@
-import { Button, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 import React from "react";
 import { Redirect, useLocation } from "react-router";
 import { useAuth } from "../auth/ProvideAuth";

@@ -4,7 +4,6 @@ import { Button, Grid, Typography,
     InputLabel, Select, MenuItem } from "@material-ui/core";
 import Cookies from 'js-cookie';
 import { useInput } from '../hooks/UseInput';
-import axios from 'axios';
 import Fetch from '../fetch/Fetch';
 
 export default function CreateCollection () {

@@ -4,15 +4,12 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from './components/App';
 import CollectionProvider from './components/context_providers/CollectionProvider';
 import UserProvider from './components/context_providers/UserProvider';
-import DeletedCollectionProvider from './components/context_providers/DeletedCollectionProvider';
 
 render(
     <Router>
         <UserProvider>
             <CollectionProvider>
-                <DeletedCollectionProvider>
-                    <App />
-                </DeletedCollectionProvider>
+                <App />
             </CollectionProvider>
         </UserProvider>
     </Router>

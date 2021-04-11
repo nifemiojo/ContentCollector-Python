@@ -103,6 +103,7 @@ celerybeat.pid
 
 # Environments
 .env
+.env.dev
 .venv
 env/
 venv/
@@ -155,3 +156,7 @@ yarn-debug.log*
 yarn-error.log*
 
 ./templates/
+
+# Docker
+/data
+/static_root

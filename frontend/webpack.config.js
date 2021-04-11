@@ -16,5 +16,14 @@ module.exports = {
     optimization: {
         minimize: true
     },
-    devtool: "source-map"
+    performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+    },
+    devServer: {
+        writeToDisk: true, // Write files to disk in dev mode, so Django can serve the assets
+    },
+    // devtool: "source-map" //-- dev only
+    devtool: false,
 };

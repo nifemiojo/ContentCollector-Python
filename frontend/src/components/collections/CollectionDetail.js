@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import { Button, Grid, Typography, 
-    TextField, FormHelperText, FormControl, 
+    TextField, FormControl, 
     InputLabel, Select, MenuItem } from "@material-ui/core";
-import { useCollections } from '../context_providers/CollectionProvider';
 import { useInput } from '../hooks/UseInput';
 import Cookies from 'js-cookie';
 import Fetch from '../fetch/Fetch';
@@ -11,7 +10,6 @@ import Fetch from '../fetch/Fetch';
 export default function CollectionDetail({data}) {
     const csrftoken = Cookies.get('csrftoken');
 
-    const { clickedCollection } = useCollections();
     const [nameProps, resetName] = useInput(data.name);
     const [descriptionProps, resetDescription] = useInput(data.description);
     const [privacyLevelProps, resetPrivacyLevel] = useInput(data.privacyLevel);

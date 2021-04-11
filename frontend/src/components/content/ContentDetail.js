@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import { Button, Grid, Typography, 
-    TextField, FormHelperText, FormControl, 
-    InputLabel, Select, MenuItem } from "@material-ui/core";
-import { useCollections } from '../context_providers/CollectionProvider';
+    TextField} from "@material-ui/core";
 import { useInput } from '../hooks/UseInput';
 import Cookies from 'js-cookie';
 import Fetch from '../fetch/Fetch';

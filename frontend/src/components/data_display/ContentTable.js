@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import { Button, TextField, Typography, Link } from '@material-ui/core';
-import { useLocation, useParams, useRouteMatch } from 'react-router';
+import { Table, Button, TableBody, 
+  TableCell, TableContainer, Link,
+  TableHead, TableRow, Typography, Paper, makeStyles } from '@material-ui/core';
+import { useLocation, useParams } from 'react-router';
 import { Link as RouterLink } from "react-router-dom";
 import Cookies from 'js-cookie';
 import Fetch from '../fetch/Fetch';
@@ -25,7 +19,6 @@ export default function ContentTable({rows}) {
   const [startFetch, toggleFetch] = useState(false);
   const [contentId, setContentId] = useState("");
   const location = useLocation();
-  const match = useRouteMatch();
 
   const { collectionId } = useParams();
 

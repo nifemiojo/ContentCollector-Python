@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Button, Grid, Typography, 
-    TextField, FormHelperText, FormControl, 
-    InputLabel, Select, MenuItem } from "@material-ui/core";
+    TextField } from "@material-ui/core";
 import { useCollections } from '../context_providers/CollectionProvider';
 import { useInput } from '../hooks/UseInput';
 import Cookies from 'js-cookie';
@@ -11,7 +10,6 @@ import Fetch from '../fetch/Fetch';
 export default function NewContent() {
     const csrftoken = Cookies.get('csrftoken');
 
-    const { clickedCollection } = useCollections();
     const [titleProps, resetTitle] = useInput();
     const [descriptionProps, resetDescription] = useInput();
     const [linkProps, resetLink] = useInput();
@@ -71,7 +69,7 @@ export default function NewContent() {
                 <Button color="primary" variant="contained">
                     Save
                 </Button>
-                {startFetch && <Fetch config={config} renderSuccess={() => <Typography>Successfully Created!</Typography>}/>}
+                {startFetch && <Fetch config={config} renderSuccess={() => <Typography>Successfully Saved!</Typography>}/>}
             </Grid>
         </Grid>
     </>

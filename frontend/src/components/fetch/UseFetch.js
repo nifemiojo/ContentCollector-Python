@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Cookies from 'js-cookie';
-import { useUser } from "../context_providers/UserProvider";
-import UserDetail from "../user/UserDetail";
 
 
 export function useFetch(config) {

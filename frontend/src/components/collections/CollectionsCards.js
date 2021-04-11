@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
+import { Card, Button, CardActions, 
+  CardContent, CardMedia,
+  Grid, Typography, makeStyles } from '@material-ui/core';
 import { Link, useLocation, useRouteMatch } from "react-router-dom";
 import { useCollections } from '../context_providers/CollectionProvider';
 import Cookies from 'js-cookie';
 import Fetch from '../fetch/Fetch';
-import { useDeletedCollections } from '../context_providers/DeletedCollectionProvider';
 
 const useStyles = makeStyles((theme) => ({
     icon: {

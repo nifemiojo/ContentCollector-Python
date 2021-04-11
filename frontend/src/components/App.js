@@ -1,23 +1,17 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useMemo } from "react";
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useHistory,
-  Redirect,
-  useRouteMatch,
-  useLocation
 } from "react-router-dom";
-import { Container, createMuiTheme, CssBaseline, ThemeProvider, useMediaQuery } from '@material-ui/core';
+import { Container, createMuiTheme, CssBaseline, 
+  ThemeProvider, useMediaQuery } from '@material-ui/core';
 import CreateCollection from "./collections/CreateCollection";
 import Home from "./pages/Home";
 import UserProfile from "./pages/UserProfile";
 import SignIn from "./auth/SignIn";
 import SignUp from "./auth/SignUp";
 import axios from "axios";
-import { useUser } from "./context_providers/UserProvider";
-import ProvideAuth, { useAuth } from "./auth/ProvideAuth";
+import ProvideAuth from "./auth/ProvideAuth";
 import PrivateRoute from "./auth/PrivateRoute";
 import CollectionDetailPage from "./pages/CollectionDetailPage";
 import EditContent from "./pages/EditContent";
@@ -27,9 +21,6 @@ import Footer from "./layout/Footer";
 import PublicCollectionList from "./collections/PublicCollectionList";
 
 export default function App() {
-  const {user, setUser} = useUser();
-  let history = useHistory();
-
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const theme = useMemo(
       () => createMuiTheme({
@@ -80,8 +71,9 @@ export default function App() {
 }
 
 axios.defaults.baseURL = 'http://localhost:8080/';
-const localState = JSON.parse(localStorage.getItem('user'));
+/* localUser = localStorage.getItem('user')
+if (localUser) const localState = JSON.parse(localUser);
 
-Object.keys(localState).length !== 0 
+localState && Object.keys(localState).length !== 0 
 ? axios.defaults.headers.common['Authorization'] = 'Bearer ' + localState.tokens.access 
-: axios.defaults.headers.common['Authorization'] = "";
+: axios.defaults.headers.common['Authorization'] = ""; */

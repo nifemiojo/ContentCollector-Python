@@ -1,6 +1,5 @@
 import { Grid, Typography } from '@material-ui/core';
-import React, { useEffect } from 'react';
-import { useDeletedCollections } from '../context_providers/DeletedCollectionProvider';
+import React from 'react';
 import CollectionsCards from './CollectionsCards';
 
 export default function DisplayCollections({data}) {

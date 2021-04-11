@@ -1,4 +1,4 @@
-import { Avatar, Container, makeStyles, Typography } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 import React from 'react';
 
 export default function UserDetail({user}) {
