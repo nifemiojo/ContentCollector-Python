@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  build-and-test:
+  build:
     docker:
       - image:  circleci/postgres:13
         auth:
@@ -26,8 +26,9 @@ jobs:
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
           command: |
-            pip install --upgrade pip
-            pip install pipenv &&
+            apt install python3-pip &&
+            pip3 install --upgrade pip &&
+            pip3 install pipenv &&
             pipenv install
           name: Test
       - save_cache:
@@ -43,8 +44,3 @@ jobs:
       - store_artifacts:
           path: test-results
           destination: tr1
-
-workflows:
-  main:
-    jobs:
-      - build-and-test
