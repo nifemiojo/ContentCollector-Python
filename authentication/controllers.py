@@ -54,6 +54,9 @@ class Register(generics.GenericAPIView):
             'email_subject': 'Verify your email',
             'to_email': user.email
         }
+        print(accessToken)
+        print(currentSite)
+        print(absurl)
 
         Util.send_email(data)
 

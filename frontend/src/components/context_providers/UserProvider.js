@@ -13,7 +13,7 @@ const reducer = (oldUser, newUser) => {
 const localState = JSON.parse(localStorage.getItem("user"));
 
 export default function UserProvider ({ children }) {
-	const [ user, setUser ] = useReducer(reducer, Object.keys(localState).length !== 0 ? localState : {});
+	const [ user, setUser ] = useReducer(reducer, localState && Object.keys(localState).length !== 0 ? localState : {});
 
 	useEffect(() => {
 		localStorage.setItem("user", JSON.stringify(user));

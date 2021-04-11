@@ -104,6 +104,7 @@ celerybeat.pid
 # Environments
 .env
 .env.dev
+.env.prod
 .venv
 env/
 venv/
@@ -143,6 +144,7 @@ dmypy.json
 
 # production
 **/build
+/frontend/static/frontend/
 
 # misc
 .DS_Store
@@ -160,3 +162,4 @@ yarn-error.log*
 # Docker
 /data
 /static_root
+/logs

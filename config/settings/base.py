@@ -33,26 +33,6 @@ SIMPLE_JWT = {
 
 AUTH_USER_MODEL = 'authentication.User'
 
-INSTALLED_APPS = [
-    # Internal
-    'collections_app.apps.CollectionsConfig',
-    'frontend.apps.FrontendConfig',
-    'authentication.apps.AuthenticationConfig',
-    # Third-party
-    'rest_framework',
-    'drf_yasg',
-    'corsheaders',
-    'rest_framework_simplejwt.token_blacklist',
-    'whitenoise.runserver_nostatic',
-    # Django defaults
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
-
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
         'Bearer': {
@@ -64,17 +44,7 @@ SWAGGER_SETTINGS = {
 }
 
 # Runs between request and view and return and sending out of response
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+
 
 ROOT_URLCONF = 'config.urls'
 

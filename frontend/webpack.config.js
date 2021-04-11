@@ -24,6 +24,6 @@ module.exports = {
     devServer: {
         writeToDisk: true, // Write files to disk in dev mode, so Django can serve the assets
     },
-    // devtool: "source-map" //-- dev only
+    //devtool: "source-map" //-- dev only
     devtool: false,
 };
