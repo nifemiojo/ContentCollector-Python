@@ -1,24 +1,14 @@
-version: 2
+version: 2.1
 
 orbs:
   python: circleci/python@0.2.1
 
 jobs:
-  build-db:
-    docker:
-      - image: circleci/postgres:13
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: test
-          POSTGRES_DB: test_db
-    steps:
-      - checkout
-          
-  test:
-    executor: python/default
+  build-and-test:
     environment:
       DJANGO_SETTINGS_MODULE: config.settings.dev
-      SECRET_KEY: $SECRET_KEY
+      SECRET_KEY: $
+    executor: python/default
     steps:
       - checkout
       - run:
@@ -32,5 +22,4 @@ jobs:
 workflows:
   main:
     jobs:
-      - build-db
-      - test
+      - build-and-test
