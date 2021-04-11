@@ -16,8 +16,6 @@ jobs:
 
     steps:
       - checkout
-      - run: chown -R circleci:circleci /usr/local/bin
-      - run: chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       - restore_cache:  # ensure this step occurs *before* installing dependencies
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
@@ -31,7 +29,7 @@ jobs:
           paths:
             - ".venv"
             - "/usr/local/bin"
-            - "/usr/local/lib/python3.6/site-packages"
+            - "/usr/local/lib/python3.7/site-packages"
       - run:
           command: pipenv run python3 manage.py test
       - store_test_results:
