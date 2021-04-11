@@ -5,9 +5,6 @@ orbs:
 
 jobs:
   build-and-test:
-    environment:
-      DJANGO_SETTINGS_MODULE: config.settings.dev
-      SECRET_KEY: $SECRET_KEY
     executor: python/default
     steps:
       - checkout
