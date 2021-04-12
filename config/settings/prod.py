@@ -1,30 +1,13 @@
 import os
 from .base import *
+import dj_database_url
+
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = False
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 CORS_ALLOWED_ORIGINS =os.environ.get("CORS_ALLOWED_ORIGINS").split(" ")
 
-INSTALLED_APPS = [
-    # Internal
-    'collections_app.apps.CollectionsConfig',
-    'frontend.apps.FrontendConfig',
-    'authentication.apps.AuthenticationConfig',
-    # Third-party
-    'rest_framework',
-    'drf_yasg',
-    'corsheaders',
-    'rest_framework_simplejwt.token_blacklist',
-    'whitenoise.runserver_nostatic',
-    # Django defaults
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -38,7 +21,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': os.environ.get("SQL_ENGINE"),
         'NAME': os.environ.get("SQL_DATABASE"),
@@ -47,4 +30,12 @@ DATABASES = {
         'HOST': os.environ.get("SQL_HOST", "localhost"),
         'PORT': os.environ.get("SQL_PORT", "5432"),
     }
+} """
+
+DATABASES = {
+    # If DATABASE_URL environment variable isn't set, use Docker Compose Postgres database.
+    'default': dj_database_url.config(
+        default='postgres://postgres:postgres@db:5432/webapp_db',
+        conn_max_age=600,
+    )
 }
