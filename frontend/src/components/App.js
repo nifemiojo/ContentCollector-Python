@@ -70,7 +70,7 @@ export default function App() {
   );
 }
 
-axios.defaults.baseURL = 'http://localhost:8000/';
+axios.defaults.baseURL = 'http://techshare.club/';
 /* localUser = localStorage.getItem('user')
 if (localUser) const localState = JSON.parse(localUser);
 

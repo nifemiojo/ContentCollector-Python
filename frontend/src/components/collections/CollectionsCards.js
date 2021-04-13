@@ -71,7 +71,7 @@ export default function CollectionsCards({data}) {
             <Card className={classes.card}>
                 <CardMedia
                 className={classes.cardMedia}
-                image="../../../static/images/collections-image.jpg"
+                image="/static/images/collections-image.jpg"
                 title="Image title"
                 />
                 <CardContent className={classes.cardContent}>

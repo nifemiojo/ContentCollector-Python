@@ -85,6 +85,8 @@ TEMPLATES = [
     },
 ]
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 WSGI_APPLICATION = 'config.wsgi.application'
 
 # Password validation

@@ -19,7 +19,6 @@ psycopg2-binary = "*"
 whitenoise = "*"
 django-storages = "*"
 boto3 = "*"
-dj-database-url = "*"
 
 [requires]
 python_version = "3.7"
