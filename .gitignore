@@ -103,7 +103,7 @@ celerybeat.pid
 
 # Environments
 .env
-/old_deployment_scripts
+./old_deployment_scripts/
 .env.prod
 .venv
 env/
