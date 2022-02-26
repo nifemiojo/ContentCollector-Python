@@ -1,8 +1,5 @@
 # ContentCollector-Python
 
-## Website
-[Tech Share](http://techshare.club)
-
 ## Technology and Tooling
 - Django & Django Rest Framework, Gunicorn wsgi server
 - React, Webpack
@@ -13,3 +10,9 @@
 
 ## About
 Tech Share is a website where users can create lists of their favourite tech content and products. They will have a public profile which people can view their recommended tech content and lists.
+
+## To run locally
+1. Ensure you have Docker installed on your machine
+2. Clone the repository onto your local machine
+3. Run `docker compose up`
+4. Go to [localhost port 8000](http://localhost:8000/)
