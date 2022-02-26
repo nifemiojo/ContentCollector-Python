@@ -15,7 +15,7 @@ export default function Footer() {
     return(
         <footer className="footer">
             <Typography variant="h6" align="center" gutterBottom>
-                Created by the Femi Ojo
+                Created by Femi Ojo
             </Typography>
             <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
                 Share your influences!

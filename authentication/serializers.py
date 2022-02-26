@@ -104,6 +104,7 @@ class SetNewPasswordSerializer(serializers.Serializer):
             raise AuthenticationFailed('The reset link is invalid', 401)
         return super().validate(attrs)
 
+
 class LogoutSerializer(serializers.Serializer):
     refresh = serializers.CharField()
     default_error_message = {

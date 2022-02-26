@@ -51,6 +51,9 @@ class GetEditDelCollection(generics.RetrieveUpdateDestroyAPIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class CreateCollection(generics.CreateAPIView):
+    """
+    POST: Allows an authenticated user to create a collection
+    """
     serializer_class = CollectionSerializer
     permissions_classes = [IsAuthenticated]
 

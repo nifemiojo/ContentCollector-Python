@@ -36,7 +36,7 @@ class Register(generics.GenericAPIView):
     def post(self, request):
         user = request.data
         serializer = self.serializer_class(data=user)
-        serializer.is_valid(raise_exception=True) # Runs validate method
+        serializer.is_valid(raise_exception=True)  # Runs validate method
         serializer.save()
 
         user_data = serializer.data
@@ -47,16 +47,13 @@ class Register(generics.GenericAPIView):
         currentSite = get_current_site(request).domain
         relativeLink = reverse('email-verify')
         absurl = 'http://'+currentSite+relativeLink+"?token="+str(accessToken)
-        emailBody = 'Hi ' + user.username + ' Use link below to verify your email \n' + absurl 
+        emailBody = 'Hi ' + user.username + ' Use link below to verify your email \n' + absurl
 
         data = {
             'email_body': emailBody,
             'email_subject': 'Verify your email',
             'to_email': user.email
         }
-        print(accessToken)
-        print(currentSite)
-        print(absurl)
 
         Util.send_email(data)
 
@@ -64,7 +61,7 @@ class Register(generics.GenericAPIView):
 
 
 class VerifyEmail(views.APIView):
-    serializer_class=EmailVerificationSerializer
+    serializer_class = EmailVerificationSerializer
 
     token_param_config = openapi.Parameter('token', in_=openapi.IN_QUERY, description='Description', type=openapi.TYPE_STRING)
 
@@ -96,39 +93,59 @@ class Login(generics.GenericAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class RequestPasswordResetEmail(generics.GenericAPIView):
+    """
+    Generic API view expecting email and redirect link (optional).
+    Serializer expects an email and redirect (optional)
+    If the users email exists then a link is sent to their email.
+    """
     serializer_class = ResetPasswordEmailRequestSerializer
 
     def post(self, request):
+        """
+        Sends out the email if the inputted email exists in the db
+        Returns the success message regardless if the email exists as a
+            security measure.
+        """
         serializer = self.serializer_class(data=request.data)
- 
         email = request.data.get('email', '')
 
         if User.objects.filter(email=email).exists():
             user = User.objects.get(email=email)
             uidb64 = urlsafe_base64_encode(smart_bytes(user.id))
+
+            # Generates a token that will be checked to see if the reset link
+            # has been used before and allows user to be redirected to
+            # the page to input new password
             token = PasswordResetTokenGenerator().make_token(user)
 
-            # Sending email
-            current_site = get_current_site(request=request).domain
-            relativeLink = reverse('password-reset-confirm', kwargs={
-                                                                'uidb64': uidb64, 
-                                                                'token': token
-                                                            })
+            relative_link = reverse(
+                'password-reset-confirm',
+                kwargs={'uidb64': uidb64, 'token': token}
+                )
 
+            current_site = get_current_site(request=request).domain
             redirect_url = request.data.get('redirect_url', '')
-            absurl = 'http://'+current_site + relativeLink
-            email_body = 'Hello, \n Use link below to reset your password  \n' + \
-                absurl+"?redirect_url="+redirect_url
+            absurl = 'http://' + current_site + relative_link
+            email_body = 'Hello, \n Use link below to reset your password  \n' \
+                + absurl + "?redirect_url=" + redirect_url
             data = {
                 'email_body': email_body, 
                 'to_email': user.email,
                 'email_subject': 'Reset your passsword'
                 }
             Util.send_email(data)
-        return Response({'success': 'We have sent you a link to reset your password'}, status=status.HTTP_200_OK)
+
+        return Response({'success': 'We have sent you a link to reset your \
+            password'}, status=status.HTTP_200_OK)
+
 
 class PasswordTokenCheckAPI(generics.GenericAPIView):
-    serializer_class = SetNewPasswordSerializer
+    """
+    Handles the GET request from the password reset link sent to users email
+    Base 64 encoded user id and token are included as query params
+    get method checks token has not already been used
+    """
+    serializer_class = ResetPasswordEmailRequestSerializer
 
     def get(self, request, uidb64, token):
 
@@ -137,7 +154,6 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
             id = smart_str(urlsafe_base64_decode(uidb64))
             user = User.objects.get(id=id)
 
-            # Check if user has used token already
             if not PasswordResetTokenGenerator().check_token(user, token):
                 if len(redirect_url) > 3:
                     return CustomRedirect(redirect_url+'?token_valid=False')
@@ -145,14 +161,14 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
                     return CustomRedirect(os.environ.get('FRONTEND_URL', '')+'?token_valid=False')
 
             if redirect_url and len(redirect_url) > 3:
-                return CustomRedirect(redirect_url+'?token_valid=True&message=Credentials Valid&uidb64='+uidb64+'&token='+token)
+                return CustomRedirect(redirect_url+'?token_valid=True&message=CredentialsValid&uidb64='+uidb64+'&token='+token)
             else:
-                return CustomRedirect(os.environ.get('FRONTEND_URL', '')+'?token_valid=False')
+                return CustomRedirect(os.environ.get('FRONTEND_URL', '')+'?token_valid=True&message=CredentialsValid&uidb64='+uidb64+'&token='+token)
         except DjangoUnicodeDecodeError as identifier:
-            if not PasswordResetTokenGenerator().check_token(user, token):
-                return CustomRedirect(redirect_url+'?token_valid=False')
+            return CustomRedirect(redirect_url+'?token_valid=False')
         except UnboundLocalError as e: 
             return Response({'error': 'Token is not valid, please request a new one'}, status=status.HTTP_400_BAD_REQUEST)
+
 
 class SetNewPasswordAPIView(generics.GenericAPIView):
     serializer_class = SetNewPasswordSerializer
@@ -160,7 +176,9 @@ class SetNewPasswordAPIView(generics.GenericAPIView):
     def patch(self, request):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
-        return Response({'success': True, 'message': 'Password reset success'}, status=status.HTTP_200_OK)
+        return Response({'success': True, 'message': 'Password reset success'},
+                        status=status.HTTP_200_OK)
+
 
 class Logout(generics.GenericAPIView):
     serializer_class = LogoutSerializer

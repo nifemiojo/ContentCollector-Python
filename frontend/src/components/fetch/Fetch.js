@@ -8,7 +8,7 @@ export default function Fetch({
 	loadingFallback = <p>loading...</p>,
 	renderError = error => {
 		return <Typography>Error Occured. Please try again later.</Typography>
-}	
+	}
 }) {
 	const { loading, data, error } = useFetch(config);
 	if (loading) return loadingFallback;

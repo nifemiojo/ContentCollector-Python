@@ -10,6 +10,8 @@ import Home from "./pages/Home";
 import UserProfile from "./pages/UserProfile";
 import SignIn from "./auth/SignIn";
 import SignUp from "./auth/SignUp";
+import ResetPasswordForm from "./auth/ResetPasswordForm";
+import RequestResetForm from "./auth/RequestResetForm";
 import axios from "axios";
 import ProvideAuth from "./auth/ProvideAuth";
 import PrivateRoute from "./auth/PrivateRoute";
@@ -38,13 +40,12 @@ export default function App() {
         <CssBaseline />
         <ProvideAuth>
           <div>
-            {/* A <Switch> looks through its children <Route>s and
-                renders the first one that matches the current URL. */}
             <LandingPage />
             <Switch>
               <Route exact path="/login/" component={SignIn} />
               <Route exact path="/register/" component={SignUp} />
-              <Route exact path="/reset-password/" component={SignUp} />
+              <Route exact path="/request-reset/" component={RequestResetForm} />
+              <Route exact path="/reset-password" component={ResetPasswordForm} />
               <PrivateRoute exact path="/collections/" >
                 <Home />
               </PrivateRoute>
@@ -70,10 +71,5 @@ export default function App() {
   );
 }
 
-axios.defaults.baseURL = 'http://techshare.club/';
-/* localUser = localStorage.getItem('user')
-if (localUser) const localState = JSON.parse(localUser);
-
-localState && Object.keys(localState).length !== 0 
-? axios.defaults.headers.common['Authorization'] = 'Bearer ' + localState.tokens.access 
-: axios.defaults.headers.common['Authorization'] = ""; */
+//axios.defaults.baseURL = 'http://techshare.club/'; // prod
+axios.defaults.baseURL = 'http://127.0.0.1:8000/'; // dev
